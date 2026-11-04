@@ -11,7 +11,7 @@ Emmanuel Uzziel A. Malolos ("Uzziel"). Agri-econ undergrad at UPLB, Natural Reso
 - MDX content collections for case studies
 - Framer Motion + GSAP + Lenis for motion
 - Node 24 on Windows
-- Deploy target: Netlify
+- Deploy target: Vercel
 
 ## Integrations
 @astrojs/tailwind, @astrojs/react, @astrojs/mdx, @astrojs/sitemap

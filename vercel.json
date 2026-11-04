@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/thesis",
+      "destination": "/work",
+      "permanent": true
+    }
+  ]
+}

@@ -7,7 +7,7 @@ const personJsonLd = JSON.stringify({
   '@type': 'Person',
   name: 'Emmanuel Uzziel A. Malolos',
   alternateName: 'Uzziel Malolos',
-  url: 'https://uzziel.dev',
+  url: 'https://uzzy.lol',
   jobTitle: 'Full-stack creator and product builder',
   description:
     'Full-stack creator and Levi Co. co-founder from Bay, Laguna. Builds indie games, AI tools, mobile apps, and websites.',
@@ -52,8 +52,8 @@ const building = [
 ];
 
 const photos = [
-  { src: '/photos/uzziel-trees.jpg', caption: 'UPLB grounds, between classes.' },
-  { src: '/photos/uzziel-jeepney.jpg', caption: 'Jeepney commute — campus to Bay.' },
+  { src: '/photos/uzziel-casual.webp', caption: 'Studio portrait, October 2026.' },
+  { src: '/photos/levi-co-team.webp', caption: 'With Levi Co. co-founders Aaron Panergayo and Philip Lizardo.' },
 ];
 ---
 
@@ -83,19 +83,19 @@ const photos = [
         <div class="absolute -bottom-3 -right-3 h-full w-full border border-gold/50" aria-hidden="true"></div>
         <div class="relative overflow-hidden border border-line-strong">
           <img
-            src="/photos/uzziel-trees.jpg"
-            alt="Uzziel on the UPLB grounds, between classes"
-            width="640"
-            height="800"
+            src="/photos/uzziel-studio.webp"
+            alt="Emmanuel Uzziel Malolos studio portrait"
+            width="800"
+            height="1000"
             loading="eager"
             decoding="async"
-            class="aspect-[4/5] w-full object-cover"
+            class="aspect-[4/5] w-full object-cover object-top"
           />
           <div class="dither-up dither-page absolute inset-x-0 bottom-0" aria-hidden="true"></div>
         </div>
         <figcaption class="meta-mono mt-4 flex items-center justify-between gap-4">
-          <span>UPLB grounds</span>
-          <span>Between classes</span>
+          <span>Emmanuel Uzziel A. Malolos</span>
+          <span>Studio portrait · 2026</span>
         </figcaption>
       </figure>
     </div>
@@ -189,7 +189,7 @@ const photos = [
   <section class="container py-16 md:py-24">
     <div class="ledger-head" data-reveal>
       <p class="eyebrow">05 · Field notes</p>
-      <p class="meta-mono hidden sm:block">Campus and the commute home</p>
+      <p class="meta-mono hidden sm:block">Studio and team · 2026</p>
     </div>
     <h2 class="sr-only">A few photos</h2>
     <div class="grid gap-6 pt-10 md:grid-cols-2 md:gap-8">
@@ -199,11 +199,11 @@ const photos = [
             <img
               src={p.src}
               alt={p.caption}
-              width="960"
-              height="960"
+              width="1200"
+              height="900"
               loading="lazy"
               decoding="async"
-              class="aspect-square w-full object-cover"
+              class="aspect-[4/3] w-full object-cover object-top"
             />
             <div class="dither-up dither-page absolute inset-x-0 bottom-0" aria-hidden="true"></div>
           </div>

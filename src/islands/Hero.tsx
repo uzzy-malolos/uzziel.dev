@@ -34,7 +34,7 @@ export default function Hero({ projectCount }: HeroProps) {
         <div className="hero-layout grid items-center gap-10 py-12 lg:grid-cols-2 lg:gap-4 lg:py-20">
           <div className="relative z-10">
             <div className="mb-7 flex items-center gap-3">
-              <img src="/photos/uzziel-formal.png" alt="Uzziel Malolos" width="48" height="48" className="h-12 w-12 rounded-full object-cover object-top" />
+              <img src="/photos/uzziel-headshot.webp" alt="Uzziel Malolos" width="48" height="48" className="h-12 w-12 rounded-full object-cover object-top" />
               <p className="text-sm leading-snug text-stone">Full-stack creator.<br /><span className="text-ink dark:text-cream">A little bit of everything. All the way through.</span></p>
             </div>
             <h1 id="hero-heading" className="hero-heading" aria-label="I design, build, and ship.">

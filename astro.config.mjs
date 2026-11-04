@@ -7,6 +7,6 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://uzziel.dev',
+  site: 'https://uzzy.lol',
   integrations: [tailwind(), react(), mdx(), sitemap()],
 });
