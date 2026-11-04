@@ -1,6 +1,9 @@
 import { test, expect } from '@playwright/test';
 
-const latest = ['fitpace', 'eco-man', 'comtus-ai', 'unaccounted', 'bookdesk'];
+const latest = [
+  'the-last-moon', 'jelly-rune-rush', 'what-if-series', 'bible-story-animations', 'night-market',
+  'fitpace', 'eco-man', 'comtus-ai', 'unaccounted', 'bookdesk',
+];
 
 test('recent projects have working case studies and artwork', async ({ page, request }) => {
   for (const slug of latest) {
@@ -95,7 +98,7 @@ test('without JavaScript the homepage and archive stay readable', async ({ brows
   await page.goto('/');
   await expect(page.getByRole('heading', { name: 'I design, build, and ship.' })).toBeVisible();
   await page.locator('#selected-work').scrollIntoViewIfNeeded();
-  await expect(page.locator('#featured-grid a[href="/work/fitpace"]')).toBeVisible();
+  await expect(page.locator('#featured-grid a[href="/work/the-last-moon"]')).toBeVisible();
   await page.goto('/work/');
   await expect(page.locator('#project-work-grid a[href="/work/unaccounted"]')).toBeVisible();
   await context.close();

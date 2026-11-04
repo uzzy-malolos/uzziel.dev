@@ -1,0 +1,29 @@
+---
+title: "Jelly Rune Rush"
+role: "Solo developer · designer"
+year: 2026
+stack: ["Godot 4.6", "GDScript", "Shaders", "Android"]
+summary: "Portrait arcade game: read each jelly's color code, cast it on four elemental pads, and hold the Prism Core through five waves and a boss."
+cover: "/covers/jelly-rune-rush.webp"
+status: "in-progress"
+order: -35
+featured: false
+---
+
+<figure class="case-figure">
+  <img src="/work/project-screenshots/jelly-rune-rush/menu-battle-boss.webp" alt="Three phone screens from Jelly Rune Rush: the title menu, a battle with jelly creatures descending toward the Prism Core, and the King Blob boss wave." />
+  <figcaption>Title menu, a wave in progress, and the King Blob.</figcaption>
+</figure>
+
+Jelly Rune Rush started as Color Dash, a joystick game that didn't work on a phone. I threw the joystick out and rebuilt it around one action: read a jelly's color code, then cast that sequence on four elemental pads with a tap or a swipe. Read, cast, survive.
+
+Color is never the only signal. Every element pairs with a glyph (flame, drop, star, leaf), and an Okabe-Ito color-safe palette sits next to the standard one. A reduced-flashing mode tones down the PRISM bursts.
+
+<figure class="case-figure">
+  <img src="/work/project-screenshots/jelly-rune-rush/draft-modes-results.webp" alt="Three phone screens: the choose-a-power upgrade draft, the modes and difficulty sheet, and a three-star results screen." />
+  <figcaption>The 1-of-3 power draft between waves, the modes sheet, and a three-star clear.</figcaption>
+</figure>
+
+The jellies, nebula, barrier, and shield are canvas shaders, not sprite sheets, so the game stays small and sharp at any size. Around the five-wave campaign there is an Endless Rift, seeded runs, difficulty tiers, coins, and a permanent Prism Shop.
+
+It runs in Godot 4.6 at 720×1280 portrait. More than 150 checks, headless and rendered, gate every build. A tester APK is built; feel-testing on physical phones comes next.

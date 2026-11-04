@@ -17,7 +17,7 @@ const sampleSlugs = new Set([
 ]);
 const projects = all.filter((entry) => !sampleSlugs.has(entry.slug));
 // Eco-Man has its own highlight band, so the grid shows the next six.
-const selectedSlugs = new Set(['fitpace', 'comtus-ai', 'shirtko', 'needs-vs-wants', 'project-nero', 'tirador']);
+const selectedSlugs = new Set(['the-last-moon', 'comtus-ai', 'shirtko', 'needs-vs-wants', 'project-nero', 'tirador']);
 const featured = projects
   .filter((e) => selectedSlugs.has(e.slug))
   .sort((a, b) => a.data.order - b.data.order)

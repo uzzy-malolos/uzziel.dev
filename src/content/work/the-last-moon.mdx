@@ -1,0 +1,34 @@
+---
+title: "The Last Moon"
+role: "Solo developer · designer"
+year: 2026
+stack: ["TypeScript", "Vite", "Canvas 2D", "Capacitor"]
+summary: "Mobile-first survivors-like roguelite from Philippine mythology. Win back the moons Bakunawa swallowed, one island at a time."
+cover: "/covers/the-last-moon.webp"
+status: "live"
+order: -36
+featured: true
+---
+
+<figure class="case-figure">
+  <img src="/work/project-screenshots/the-last-moon/title-story-map.webp" alt="Three phone screens from The Last Moon: the title screen with Bakunawa coiled around a full moon, Lola Ising's fireside story intro, and the island map with Bamboo Village open and later islands locked." />
+  <figcaption>Title, story intro, and the island map. Bamboo Village is open; the next five islands wait behind eclipses.</figcaption>
+</figure>
+
+Bakunawa swallowed six of the seven moons. Wren, Mayari's apprentice, walks the islands on eclipse nights to win them back. That is the whole pitch, and the game is built to be played one-handed on a phone in the few minutes you have.
+
+It is a survivors-like: you move, the weapons fire on their own, and every level-up offers a three-card draft. Island 1, Bamboo Village, is fully playable from the first night to the Tikbalang King. Lantern shrines, chests, weapon evolutions and a Moon Shrine for permanent upgrades round out the loop.
+
+<figure class="case-figure">
+  <img src="/work/project-screenshots/the-last-moon/desktop-run.webp" alt="The Last Moon on a wide screen: Wren in a lantern-lit village clearing ringed by nipa huts and bamboo, with the night timer and level bar at the top." />
+  <figcaption>The same build on a wide screen. Lantern light, nipa huts, and bamboo set the village at night.</figcaption>
+</figure>
+
+I wrote it in TypeScript on a 60 Hz fixed-step Canvas 2D loop with a DOM overlay for menus, so the game logic stays deterministic and the UI stays crisp. It ships as a PWA on the web and as a Capacitor Android build. Phones get dedicated landscape layouts for every screen, and saves can be exported and imported.
+
+<figure class="case-figure">
+  <img src="/work/project-screenshots/the-last-moon/run-draft-boss.webp" alt="Three phone screens: a crowded mid-run fight, the level-up draft offering three upgrades, and the Tikbalang King boss fight." />
+  <figcaption>Mid-run pressure, the level-up draft, and the Tikbalang King.</figcaption>
+</figure>
+
+The web build is live at [the-last-moon-omega.vercel.app](https://the-last-moon-omega.vercel.app). Next up is testing on real phones, then islands 2 to 6.
