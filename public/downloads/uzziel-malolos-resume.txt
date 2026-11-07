@@ -1,25 +1,32 @@
 Emmanuel Uzziel A. Malolos
 
-Full-Stack Creator | AI Tool Builder | Content & Automation Professional
+Full-Stack Creator | Mobile, Web & Game Developer | Levi Co. Co-founder
 +63 991 387 3723 • uzzielmalolos@gmail.com • Bay, Laguna, Philippines (Remote-Ready)
-uzziel.dev • LinkedIn
+uzzy.lol • LinkedIn
 
 PROFESSIONAL SUMMARY
 
-Full-stack creator and AI tool builder from Bay, Laguna, with 5+ years in digital content production, social media management, and video editing. Builds indie games (Godot 4), ships AI-powered web and mobile apps (Next.js, Flutter, FastAPI), designs and deploys static sites for small businesses, and manages Meta Ads support workflows. Applies AI tools (Claude, ChatGPT) to streamline content, development, and campaign operations.
+Full-stack creator and Levi Co. co-founder from Bay, Laguna, with 5+ years in digital content production, social media management, and video editing. Ships Android apps (Kotlin, Jetpack Compose), cross-platform mobile apps (Expo, React Native, Capacitor), local-first desktop tools (Tauri, Electron), and web products (React, Next.js, Astro). Builds indie games in Godot 4, Roblox Studio, and three.js, produces code-driven animation series for YouTube, and uses AI tools (Claude, ChatGPT) and agent systems to speed up development and content work.
 
 CORE SKILLS
 
-Game Development: Godot 4, GDScript, Aseprite, Phaser 3, 2D Pixel Art, Tilemaps
-Web Development: Astro 4, Astro 5, React 18, Next.js 14, TypeScript, Tailwind CSS, Vite, WebSocket, HTML/CSS, JavaScript
-Mobile & Desktop: Flutter, Riverpod, Drift, SQLite, Expo React Native, Electron, FastAPI, Python
-AI & Automation: Claude, ChatGPT, Botpress, Groq, OpenRouter API, HiveMind multi-agent orchestration, BullMQ, AI-assisted workflows, Prompt engineering
+Mobile: Kotlin, Jetpack Compose, Room, Expo, React Native, Capacitor, Flutter, Riverpod, SQLite
+Web Development: TypeScript, JavaScript, React 18, Next.js, Astro, Vite, Tailwind CSS, three.js, Canvas 2D, WebSocket, WebRTC, HTML/CSS
+Desktop & Backend: Tauri, Rust, Electron, FastAPI, Python, Fastify, NestJS, PostgreSQL, Supabase, Colyseus
+Game Development: Godot 4, GDScript, Shaders, Roblox Studio, Luau, Phaser 3, Blender, Aseprite, 2D Pixel Art
+AI & Automation: Claude, ChatGPT, Botpress, Groq, OpenRouter API, LLM routing, Agent systems, BullMQ, Prompt engineering
 Paid Social & Marketing Ops: Meta Ads Manager, Campaign naming, Creative logs, Kill-rule tracking, Google Sheets reporting, YouTube Studio
-Content Creation & Video: Video editing, Canva, CapCut, Adobe Premiere Pro, Filmora, Short-form content, Subtitling (Whisper, ffmpeg)
-Tools & Workflow: Git, GitHub, Netlify, WordPress, Google Workspace, Notion, Playwright, SOP creation, Checklist-based QA
+Content Creation & Video: Video editing, Code-driven animation (three.js, Canvas), FFmpeg, Canva, CapCut, Adobe Premiere Pro, Filmora, Short-form content, Subtitling (Whisper)
+Tools & Workflow: Git, GitHub, Vercel, Netlify, Playwright, Vitest, WordPress, Google Workspace, Notion, SOP creation, Checklist-based QA
 Data & Reporting: Excel, Google Sheets, Data cleanup, Dashboard reporting, CSV workflows
 
 RELEVANT EXPERIENCE
+
+Levi Co. — Philippines
+Co-founder / Product Developer | 2026 – Present
+- Co-founded an independent product team with Philip James Lizardo and Aaron Christian Panergayo that builds websites, apps, business software, games, and automations.
+- Designed and built Comtus AI, a source-based study workspace that turns documents into notes, flashcards, quizzes, and study guides (React, TypeScript, Tauri).
+- Designed and built Fitness Pace, a workout, food-logging, and coaching companion with an Android tester build and a live product website (Expo, Fastify, PostgreSQL).
 
 The Lord's Worship Center — Bay, Laguna
 Freelance Video Editor / Digital Media Consultant | Jan 2019 – Present
@@ -44,28 +51,26 @@ Farm Accountant | Mar 2023 – May 2024
 
 SELECTED PROJECTS (2026)
 
-HiveMind — Multi-agent orchestration monorepo with Obsidian vault memory, BullMQ queue, Next.js dashboard, swarm execution, Grok API streaming, and Slack/Discord bots. Phases 1–8 complete. 201/201 tests.
-Saklay Charity Website — Astro 5 donation site for Saklay foundation. Warm Hope design system, Markdown content collections, WCAG AA tooling, SEO/JSON-LD. Live on Vercel; saklay.com DNS cutover pending.
-SPLATZ — Neon 4-player co-op platformer. Phaser 3 + server-authoritative WebSocket physics + Electron + Steamworks branch. 54/54 Vitest tests. Four levels with sync buttons and portal puzzles.
-TraderBot — HiveMind-orchestrated crypto signal pipeline. Binance/yfinance data, multi-indicator consensus, risk gates, backtests with vault audit trail. Trend regime filter and threshold sweep mode.
-Pixel Survivor — Godot 4.6 bullet heaven with Megabonk-style ricocheting projectiles. 320×180 pixel pipeline, object pools, phased GDD. Phase 1 scaffold complete.
-Yusel AI — Free-first AI chat app for Filipino sellers and freelancers. Next.js + Supabase + Groq/OpenRouter. PHP Pro billing via Lemon Squeezy. Freelancer/seller chat templates with tabbed picker UI.
+Eco-Man — Android business record book for reviewed receipts, sales, expenses, and statements, with private originals, portable backups, and explicit sharing. Kotlin, Jetpack Compose, Room, FastAPI, PostgreSQL.
+The Last Moon — Mobile-first survivors-like roguelite from Philippine mythology: win back the moons Bakunawa swallowed, one island at a time. TypeScript, Vite, Canvas 2D, Capacitor. Live on the web.
+Comtus AI — Source-based study workspace that turns documents into connected notes, conversations, flashcards, quizzes, and study guides. React, TypeScript, Vite, Tailwind CSS, Tauri. Live.
+Fitness Pace — Fitness companion linking workout planning, food logging, progress, and optional PACE coaching. Expo, React Native, Fastify, PostgreSQL. Android tester build and live product site.
+ShirtKo — Apparel storefront for a Calauan, Laguna print shop on web and mobile. GCash and COD checkout, with an admin that verifies payments in one click. Next.js, Expo, Supabase. Live.
+Needs vs. Wants — Android spending trainer: save each purchase as a Need or a Want, then see its place in your daily budget. Kotlin, Jetpack Compose, Room, Supabase. Live.
+Bookdesk — Local-first bookkeeping desktop app with transaction ingestion, categorization, duplicate review, approval checks, and a durable audit trail. Tauri, Rust, React, SQLite, FastAPI.
+Project Nero — Isometric cyberpunk multiplayer RPG with a three.js world, server-authoritative combat, persistent quests, and original characters. TypeScript, React, Colyseus, PostgreSQL, Blender.
+Jelly Rune Rush — Portrait arcade game: read each jelly's color code, cast it on four elemental pads, and hold the Prism Core through five waves and a boss. Godot 4.6, GDScript, shaders, Android.
+Night Market — Co-op Roblox game: cook and serve at a Filipino night market after closing, while something watches from the alleys. Roblox Studio, Luau, Blender.
+Unaccounted — Philippine-rooted social-deduction game: players build a public project, investigate missing money, and decide whom to trust. Roblox Studio, Luau, Blender.
+What If — Narrated alternate-history shorts rendered in three.js and captured with Playwright and FFmpeg. Episode 1: Atlantis rises. Episode 2: Tesla's tower gets funded.
+Bible Story Animations — Vertical storybook animations of Bible stories for the Bible Adventures channel, drawn and animated entirely in code. JavaScript, Canvas, Python, FFmpeg.
+Cozy Party — Browser party game with a 3D island board, 17 minigames, 8 players on one keyboard plus gamepads, and online rooms joined from a lobby browser or QR code. three.js, WebRTC. Live.
+HIVE — Verified agentic coding runtime with a CLI, terminal UI, and Windows desktop companion built around guarded execution. TypeScript, Electron, Playwright.
+ShopMart — Security hardening and release acceptance for a multi-seller marketplace monorepo: 30 of 31 Supabase Advisor findings closed. NestJS, Next.js, Expo, Supabase, Stripe.
 TIRADOR: Barangay Survivors — Filipino-themed top-down pixel roguelite in Godot 4. Slingshot combat in a barangay TileMap, weapon upgrade tree, enemy spawner. Playable arena foundation shipped.
-Heart and Soil (Lupa at Puso) — Cozy Filipino farming sim in Godot 4. Multi-crop farming loop, NPCs with dialogue trees, reputation system, barangay fiesta events, fishing, cooking, day/night cycle. 200 GUT tests.
-Pomodoro App (Ponggi) — Flutter pomodoro timer with 5 memory-game breaks (Pair Up, Echo, Flash Digits, Glow Grid, Word Crate), physics-driven Ponggi mascot, SQLite session storage, Windows tray support. 113/113 tests.
-ApplyGuard PH — Free browser tool scoring Filipino remote job posts. React + Vite, no backend. Verdict (Apply/Caution/Skip), fit score, scam-risk detection — all client-side. 26/26 Vitest tests.
-FOLIO — Desktop document intelligence app for law offices. Electron + FastAPI + Tesseract OCR + local LLM (qwen2.5) for metadata extraction. Watch folder, dossier compilation, insight engine. 252 tests.
-Ancestra — One-tap AI photo restoration for old family photos. Expo React Native app + FastAPI backend + Replicate CodeFormer. Before/after comparison, local image caching, HEIC support.
-Job Hunter CLI — Daily Python CLI reading job alert emails via IMAP, scoring posts with Anthropic API, generating HTML digests with AI-generated cover letters. Runs at 7AM via Windows Task Scheduler.
-Philippine Government Hub — Directory of PH government services. Next.js 14 + Fuse.js fuzzy search. Static JSON data, mobile-first, no login. SSS, Pag-IBIG, PhilHealth, DFA, LTO, PSA, BIR, DSWD services.
-JoMel's Fried Chicken — Full brand kit + static marketing site: logo lockup, color palette, type scale, social media templates, responsive HTML website.
-Tita Maricar's Carinderia — Static site + daily social-media workflow. Menu, location, food gallery, Instagram/TikTok content loop with caption bank and content calendar.
-Long Way Around — 2D pixel RPG in Godot 4.6. Complete four-act story with three endings, battle encounters, NPC dialogue, interiors. 74-check smoke test suite. Playable start-to-finish.
-Starter Business Website — Reusable site templates for PH small businesses. Vite + React + Tailwind, Netlify-deployable. Food, resort, and church demo templates. PHP 5,000 one-time delivery.
 The Lord's Worship Center (v2) — Church website redesign: 10-section single-page site with sermon library, prayer request form, feeding program gallery, Give section with GCash/PayPal. Warm cream-and-wood design system.
-Carlos Fashion Theme — Custom WordPress theme built from template hierarchy. PHP, full set of template files, no page builders.
-Spritesheet Gen — Browser tool generating spritesheets from individual sprite images. HTML Canvas, client-side only, no uploads.
 AI Micro-Agency — Botpress + Claude/GPT chatbots for Philippine SMEs. Structured nodes for FAQs, LLM for open-ended turns, explicit human handoff. Test rigs for kakanin seller, print shop, barbershop.
+
 EDUCATION
 
 University of the Philippines Los Baños | 2022 – 2027
@@ -80,4 +85,4 @@ AWARDS & ACHIEVEMENTS
 - University Scholar — University of the Philippines Los Baños (2022–Present)
 - Dean's Lister — Batangas State University (2021–2022)
 
-Portfolio and references: uzziel.dev
+Portfolio and references: uzzy.lol
