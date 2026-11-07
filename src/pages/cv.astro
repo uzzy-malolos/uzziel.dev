@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { resumeData } from '../lib/resume-content';
 import { socials } from '../lib/socials';
 
-const { name, tagline, phone, email, location, website, linkedin, summary, skills, experience, projects, education, awards } =
+const { name, tagline, phone, email, location, website, linkedin, github, summary, skills, experience, projects, education, awards } =
   resumeData;
 const socialLinks = socials.filter((s) => s.url);
 ---
@@ -25,7 +25,9 @@ const socialLinks = socials.filter((s) => s.url);
         <ul class="mt-5 flex flex-wrap gap-x-5 gap-y-2 font-mono text-[11px] uppercase tracking-[0.1em] text-stone">
           <li>{location}</li>
           <li>{phone}</li>
-          <li>{email}</li>
+          <li>
+            <a href={`mailto:${email}`} class="link-line transition-colors hover:text-accent">{email}</a>
+          </li>
           <li>
             <a href={website} target="_blank" rel="noopener noreferrer" class="link-line transition-colors hover:text-accent">
               {website.replace('https://', '')}
@@ -36,6 +38,13 @@ const socialLinks = socials.filter((s) => s.url);
               LinkedIn
             </a>
           </li>
+          {github.map((url) => (
+            <li>
+              <a href={url} target="_blank" rel="noopener noreferrer" class="link-line transition-colors hover:text-accent">
+                GitHub · {url.split('/').pop()}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
       <div class="flex flex-wrap gap-3" data-reveal data-reveal-delay="100">
@@ -166,7 +175,7 @@ const socialLinks = socials.filter((s) => s.url);
           {s.platform} ↗
         </a>
       ))}
-      <a href="mailto:uzzielmalolos@gmail.com" class="link-line transition-colors hover:text-accent">uzzielmalolos@gmail.com</a>
+      <a href={`mailto:${email}`} class="link-line transition-colors hover:text-accent">{email}</a>
     </div>
   </section>
 </BaseLayout>

@@ -2,9 +2,10 @@ export const resumeData = {
   name: 'Emmanuel Uzziel A. Malolos',
   tagline: 'Full-Stack Creator | Mobile, Web & Game Developer | Levi Co. Co-founder',
   phone: '+63 991 387 3723',
-  email: 'uzzielmalolos@gmail.com',
+  email: 'uzzymalolos@gmail.com',
   location: 'Bay, Laguna, Philippines (Remote-Ready)',
   linkedin: 'https://www.linkedin.com/in/emmanuel-uzziel-malolos-25574831a/',
+  github: ['https://github.com/yuzuruu29', 'https://github.com/uzzy-malolos'],
   website: 'https://uzzy.lol',
   summary:
     'Full-stack creator and Levi Co. co-founder from Bay, Laguna, with 5+ years in digital content production, social media management, and video editing. Ships Android apps (Kotlin, Jetpack Compose), cross-platform mobile apps (Expo, React Native, Capacitor), local-first desktop tools (Tauri, Electron), and web products (React, Next.js, Astro). Builds indie games in Godot 4, Roblox Studio, and three.js, produces code-driven animation series for YouTube, and uses AI tools (Claude, ChatGPT) and agent systems to speed up development and content work.',

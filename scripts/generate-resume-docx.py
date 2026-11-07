@@ -7,7 +7,10 @@ from pathlib import Path
 
 from docx import Document
 from docx.enum.text import WD_ALIGN_PARAGRAPH
-from docx.shared import Inches, Pt
+from docx.opc.constants import RELATIONSHIP_TYPE
+from docx.oxml import OxmlElement
+from docx.oxml.ns import qn
+from docx.shared import Inches, Pt, RGBColor
 
 ROOT = Path(__file__).resolve().parents[1]
 TS_SOURCE = ROOT / "src" / "lib" / "resume-content.ts"
@@ -114,6 +117,7 @@ def load_resume_data() -> dict:
         "location": parse_ts_object(source, "location"),
         "linkedin": parse_ts_object(source, "linkedin"),
         "website": parse_ts_object(source, "website"),
+        "github": parse_string_array_block(source, "github"),
         "summary": parse_ts_object(source, "summary"),
         "skills": parse_skills(source),
         "experience": parse_experience(source),
@@ -121,6 +125,30 @@ def load_resume_data() -> dict:
         "education": parse_education(source),
         "awards": parse_string_array_block(source, "awards"),
     }
+
+
+def add_contact_text(paragraph, text: str) -> None:
+    run = paragraph.add_run(text)
+    run.font.size = Pt(9.5)
+    run.font.name = "Calibri"
+
+
+def add_hyperlink(paragraph, text: str, url: str) -> None:
+    # python-docx has no hyperlink API: wrap a styled run in a w:hyperlink element.
+    rel_id = paragraph.part.relate_to(url, RELATIONSHIP_TYPE.HYPERLINK, is_external=True)
+    link = OxmlElement("w:hyperlink")
+    link.set(qn("r:id"), rel_id)
+    run = paragraph.add_run(text)
+    run.font.size = Pt(9.5)
+    run.font.name = "Calibri"
+    run.font.underline = True
+    run.font.color.rgb = RGBColor(0x1F, 0x4E, 0x79)
+    link.append(run._r)
+    paragraph._p.append(link)
+
+
+def short_url(url: str) -> str:
+    return re.sub(r"^https?://(www\.)?", "", url).rstrip("/")
 
 
 def add_heading(doc: Document, text: str) -> None:
@@ -165,12 +193,20 @@ def build_docx(data: dict) -> Document:
 
     contact = doc.add_paragraph()
     contact.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    cr = contact.add_run(
-        f"{data['phone']}  •  {data['email']}  •  {data['location']}\n"
-        f"{data['website'].replace('https://', '')}  •  LinkedIn"
-    )
-    cr.font.size = Pt(9.5)
-    cr.font.name = "Calibri"
+    add_contact_text(contact, f"{data['phone']}  •  ")
+    add_hyperlink(contact, data["email"], f"mailto:{data['email']}")
+    add_contact_text(contact, f"  •  {data['location']}")
+
+    links = doc.add_paragraph()
+    links.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    add_hyperlink(links, short_url(data["website"]), data["website"])
+    add_contact_text(links, "  •  ")
+    add_hyperlink(links, "LinkedIn", data["linkedin"])
+    add_contact_text(links, "  •  GitHub: ")
+    for i, url in enumerate(data["github"]):
+        if i:
+            add_contact_text(links, " | ")
+        add_hyperlink(links, url.rstrip("/").split("/")[-1], url)
 
     add_heading(doc, "Professional Summary")
     add_body(doc, data["summary"])
@@ -209,7 +245,8 @@ def build_txt(data: dict) -> str:
         "",
         data["tagline"],
         f"{data['phone']} • {data['email']} • {data['location']}",
-        f"{data['website'].replace('https://', '')} • LinkedIn",
+        f"{short_url(data['website'])} • LinkedIn: {short_url(data['linkedin'])}",
+        f"GitHub: {' | '.join(short_url(url) for url in data['github'])}",
         "",
         "PROFESSIONAL SUMMARY",
         "",
