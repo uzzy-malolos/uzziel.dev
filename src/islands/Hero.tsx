@@ -56,7 +56,7 @@ export default function Hero({ projectCount }: HeroProps) {
             <span className="hero-stage-note" aria-hidden="true">From the working desk</span>
             <motion.a href="/work/long-way-around" className="hero-artifact hero-artifact-game" style={{ transform: reduced ? 'none' : gameTransform }} data-cursor-label="Explore Long Way Around">
               <div className="artifact-chrome"><span className="flex gap-1" aria-hidden="true"><i /><i /><i /></span><span>Long Way Around · A pixel RPG</span></div>
-              <img src="/work/project-screenshots/long-way-around/village.png" alt="Long Way Around: a pixel-art conversation in the village" width="1153" height="646" fetchPriority="high" className="aspect-video w-full object-cover" />
+              <img src="/work/project-screenshots/long-way-around/village.png" alt="Long Way Around: Ida talking to Theo in Willowfen village with custom pixel portrait and World HUD" width="1152" height="648" fetchPriority="high" className="aspect-video w-full object-cover" />
               <div className="artifact-caption"><span>There’s a story around here.</span><span aria-hidden="true">↗</span></div>
             </motion.a>
             <motion.a href="/work/saklay" className="hero-artifact hero-artifact-web" style={{ transform: reduced ? 'none' : webTransform }} data-cursor-label="Explore Saklay">

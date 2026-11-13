@@ -140,3 +140,19 @@ test('The Last Moon embeds the 3D preview MP4 and updated cases load cleanly', a
     await expect.poll(() => page.locator('#case-cover-img').evaluate((el) => (el as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
   }
 });
+
+test('Long Way Around renders updated screenshots on hero and case study', async ({ page }) => {
+  await page.goto('/');
+  const heroGameImg = page.locator('.hero-artifact-game img');
+  await expect(heroGameImg).toHaveAttribute('src', '/work/project-screenshots/long-way-around/village.png');
+  await expect.poll(() => heroGameImg.evaluate((el) => (el as HTMLImageElement).naturalWidth)).toBe(1152);
+
+  const res = await page.goto('/work/long-way-around/');
+  expect(res?.status()).toBe(200);
+  const imgs = page.locator('article.prose-case img');
+  await expect(imgs).toHaveCount(6);
+  for (const img of await imgs.all()) {
+    await img.scrollIntoViewIfNeeded();
+    await expect.poll(() => img.evaluate((el) => (el as HTMLImageElement).naturalWidth)).toBe(1152);
+  }
+});

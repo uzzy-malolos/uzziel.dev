@@ -682,6 +682,10 @@
   border-radius: 22px;
 }
 
+.prose-case .case-wide img {
+  aspect-ratio: 16 / 9;
+}
+
 .prose-case .case-figure figcaption {
   display: flex;
   align-items: baseline;
