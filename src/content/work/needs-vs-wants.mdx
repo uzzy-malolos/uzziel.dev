@@ -3,28 +3,33 @@ title: "Needs vs. Wants"
 role: "Product designer · Android developer"
 year: 2026
 stack: ["Kotlin", "Jetpack Compose", "Room", "Supabase"]
-summary: "An Android spending trainer built around one deliberate choice: save a purchase as a Need or a Want, then see its place in your daily budget."
+summary: "An Android spending trainer live on Google Play: seal every purchase as a Need or a Want, check your baon and daily limit, and consult an on-phone advisor."
 cover: "/covers/needs-vs-wants.webp"
 logo: "/logos/needs-vs-wants.webp"
+playStoreUrl: "https://play.google.com/store/apps/details?id=com.needsvswants.app"
+liveUrl: "https://needs-vs-wants.vercel.app"
 status: "live"
-order: -9
+order: -37
 featured: true
 ---
 
-Needs vs. Wants asks for one deliberate choice before a purchase becomes a record: is it a Need or a Want? That small pause is the product. The daily budget and history help a person see what their choices add up to, without turning every entry into an accounting exercise.
+Needs vs. Wants asks one deliberate question before a purchase becomes permanent: is it a Need or a Want? That pause is the core mechanic. Now live on [Google Play](https://play.google.com/store/apps/details?id=com.needsvswants.app), it helps students and young earners track everyday peso spending against a realistic daily budget without turning pocket money into accounting software.
 
-I designed and built the native Android app in Kotlin and Jetpack Compose. Green Need, crimson Want, warm paper, and readable ruled rows give it a familiar register-and-notepad character. Motion follows those materials through page changes, stamp feedback, and small control transitions, with a reduced-motion path throughout.
+I designed and built the native Android app in Kotlin and Jetpack Compose around a physical ledger-and-notepad aesthetic: green Need seals, crimson Want stamps, warm paper surfaces, and crisp tabular totals.
 
-## The diary stays on the phone
+<figure class="case-figure case-phones">
+  <div>
+    <img src="/work/project-screenshots/needs-vs-wants/home.webp" alt="Needs vs Wants home screen showing Today spending statement with 271 pesos split between Needs and Wants." />
+    <img src="/work/project-screenshots/needs-vs-wants/log.webp" alt="Needs vs Wants purchase detail screen with Save as Need and Save as Want action buttons." />
+    <img src="/work/project-screenshots/needs-vs-wants/advisor.webp" alt="Needs vs Wants on-phone budget advisor checking a purchase against remaining daily budget." />
+  </div>
+  <figcaption>Android 2.0.52 screens - Daily Need/Want statement, one-tap seal flow, and on-phone budget advisor.</figcaption>
+</figure>
 
-Room stores purchases locally, with amounts represented as integer cents. A person can start another page without losing the previous one, review history by day, edit a record, and select multiple purchases for an explicit removal. Budget summaries explain the period they describe instead of making a rolling total look like today's spending.
+## Offline-first ledger and on-phone advisor
 
-Backup and restore use Android's file picker, so the user chooses where their copy lives. Recovery, enlarged text, keyboard access, and clear selected states are everyday requirements for a diary somebody may keep for months.
+Local entries live in a Room database so logging a jeepney fare, coffee, or meal works immediately with zero network dependency or mandatory sign-in. Optional Supabase backup and restore let users carry history cleanly across devices.
 
-## Guidance beside the decision
+Recent releases (2.0.51 and 2.0.52 on Google Play) introduced an on-phone budget advisor that checks whether an impulse buy fits today's remaining room before you tap save, alongside streak tracking and shareable spending breakdowns.
 
-An optional online Advisor can help work through a typed question and relevant budget context. The purchase diary remains local. Membership screens explain the available access and restore state without treating a failed refresh as a reason to sell the same access again.
-
-The [public website](https://needs-vs-wants.vercel.app) shows real app screens, explains installation and backup, and offers a browser practice flow. App previews, direct downloads, and prepared store bundles have different release steps, so the site identifies what is actually available.
-
-The aim stays specific: make spending visible while the choice is still fresh, then give the person a record they can understand and revisit.
+Download Needs vs. Wants on [Google Play](https://play.google.com/store/apps/details?id=com.needsvswants.app) or test the interactive walkthrough at [needs-vs-wants.vercel.app](https://needs-vs-wants.vercel.app).

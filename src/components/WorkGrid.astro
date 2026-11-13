@@ -11,6 +11,7 @@ type Entry = {
     stack: string[];
     cover: string;
     logo?: string;
+    playStoreUrl?: string;
     highlight?: boolean;
     role: string;
   };
@@ -44,6 +45,7 @@ const aspects: Array<'wide' | 'tall'> = ['wide', 'tall', 'tall', 'wide', 'wide',
           stack={e.data.stack}
           cover={e.data.cover}
           logo={e.data.logo}
+          playStoreUrl={e.data.playStoreUrl}
           highlight={e.data.highlight}
           index={i}
           aspect={aspects[i % aspects.length]}
@@ -64,6 +66,7 @@ const aspects: Array<'wide' | 'tall'> = ['wide', 'tall', 'tall', 'wide', 'wide',
         stack={e.data.stack}
         cover={e.data.cover}
         logo={e.data.logo}
+        playStoreUrl={e.data.playStoreUrl}
         highlight={e.data.highlight}
         index={i}
       />

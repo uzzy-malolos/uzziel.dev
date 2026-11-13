@@ -12,6 +12,8 @@ export const collections = {
       cover: z.string(),
       // Real app/game icon, shown beside the title on cards and case studies.
       logo: z.string().optional(),
+      playStoreUrl: z.string().url().optional(),
+      liveUrl: z.string().url().optional(),
       status: z.enum(['live', 'completed', 'in-progress', 'archived']),
       order: z.number(),
       featured: z.boolean().default(false),

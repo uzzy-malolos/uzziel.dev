@@ -2,33 +2,61 @@
 title: "The Last Moon"
 role: "Solo developer · designer"
 year: 2026
-stack: ["TypeScript", "Vite", "Canvas 2D", "Capacitor"]
-summary: "Mobile-first survivors-like roguelite from Philippine mythology. Win back the moons Bakunawa swallowed, one island at a time."
+stack: ["TypeScript", "Vite", "Canvas 2D", "Three.js", "Capacitor"]
+summary: "Philippine folklore survivors-like roguelite across five haunted islands, shipped on itch.io and Android with an accompanying 3D lore preview."
 cover: "/covers/the-last-moon.webp"
+liveUrl: "https://uzzydev.itch.io/the-last-moon"
 status: "live"
 order: -36
 featured: true
 ---
 
-<figure class="case-figure">
-  <img src="/work/project-screenshots/the-last-moon/title-story-map.webp" alt="Three phone screens from The Last Moon: the title screen with Bakunawa coiled around a full moon, Lola Ising's fireside story intro, and the island map with Bamboo Village open and later islands locked." />
-  <figcaption>Title, story intro, and the island map. Bamboo Village is open; the next five islands wait behind eclipses.</figcaption>
-</figure>
-
-Bakunawa swallowed six of the seven moons. Wren, Mayari's apprentice, walks the islands on eclipse nights to win them back. That is the whole pitch, and the game is built to be played one-handed on a phone in the few minutes you have.
-
-It is a survivors-like: you move, the weapons fire on their own, and every level-up offers a three-card draft. Island 1, Bamboo Village, is fully playable from the first night to the Tikbalang King. Lantern shrines, chests, weapon evolutions and a Moon Shrine for permanent upgrades round out the loop.
+Bakunawa swallowed six of the seven moons. As Wren - joined in Deluxe runs by Lola Iska, Kidlat, and Mayari - you survive each midnight wave through bamboo villages, haunted balete forests, drowned shrines, volcanic shores, and mangrove mazes until every moon returns to the sky.
 
 <figure class="case-figure">
-  <img src="/work/project-screenshots/the-last-moon/desktop-run.webp" alt="The Last Moon on a wide screen: Wren in a lantern-lit village clearing ringed by nipa huts and bamboo, with the night timer and level bar at the top." />
-  <figcaption>The same build on a wide screen. Lantern light, nipa huts, and bamboo set the village at night.</figcaption>
+  <video
+    controls
+    playsinline
+    preload="metadata"
+    poster="/work/project-screenshots/the-last-moon/lore-preview-3d-poster.webp"
+    width="1280"
+    height="720"
+  >
+    <source src="/work/project-screenshots/the-last-moon/lore-preview-3d.mp4" type="video/mp4" />
+  </video>
+  <figcaption>The Last Moon 3D Lore Preview - 60-second Three.js + GSAP motion piece built from non-sprite artwork, bathymetry maps, and custom eclipse shaders.</figcaption>
 </figure>
 
-I wrote it in TypeScript on a 60 Hz fixed-step Canvas 2D loop with a DOM overlay for menus, so the game logic stays deterministic and the UI stays crisp. It ships as a PWA on the web and as a Capacitor Android build. Phones get dedicated landscape layouts for every screen, and saves can be exported and imported.
+The Last Moon runs as a fast portrait or landscape survivors-like session built for both thumb drag on phones and keyboard or gamepad on desktop. Auto-firing folklore weapons fill the screen while players weave around creatures, dash out of danger with an invulnerability frame, and gather moon dust to draft upgrades or union evolutions.
+
+## Five islands and four playable heroes
+
+Each island brings its own creature mix, terrain feel, hazards, and three-phase boss encounter. Defeating a boss requires breaking its guard and stealing three trophies under pressure: golden hairs from the Tikbalang King in Bamboo Village, salted legs beneath the Manananggal Mother in Haunted Forest, three bells against the Queen of the Sirena in Drowned Shrine, Ember Shore's Smoking Kapre, and Mangrove Maze's Bungisngis, plus the hidden Biringan night that unlocks the unique Kubing instrument.
 
 <figure class="case-figure">
-  <img src="/work/project-screenshots/the-last-moon/run-draft-boss.webp" alt="Three phone screens: a crowded mid-run fight, the level-up draft offering three upgrades, and the Tikbalang King boss fight." />
-  <figcaption>Mid-run pressure, the level-up draft, and the Tikbalang King.</figcaption>
+  <img src="/work/project-screenshots/the-last-moon/title-story-map.webp" alt="Three phone screens from The Last Moon: title screen with Bakunawa coiled around a full moon, Lola Iska's fireside story intro, and the archipelago map." />
+  <figcaption>Title screen, Lola Iska's fireside opening, and the island progression map.</figcaption>
 </figure>
 
-The web build is live at [the-last-moon-omega.vercel.app](https://the-last-moon-omega.vercel.app). Next up is testing on real phones, then islands 2 to 6.
+<figure class="case-figure">
+  <img src="/work/project-screenshots/the-last-moon/mayari-crowd.webp" alt="Late-night gameplay screen facing the Tikbalang King boss amidst lightning chains, golden moons, and a mini-map radar." />
+  <figcaption>Boss confrontation - lightning chains, minimap navigation, and multi-bar guard break phase.</figcaption>
+</figure>
+
+Across runs, players earn moon shards to spend at the Moon Shrine across 19 permanent blessings - from early survival picks like Woven Charm to high-tier revives like Mayari's Mercy and Twin Moons. Weapon evolutions fuse max-level gear into union forms such as Eclipse Edge, Kidlat Lash, Agua Bendita, Kulintang Chorus, and Mayari's Full Moon.
+
+<figure class="case-figure">
+  <img src="/work/project-screenshots/the-last-moon/desktop-run.webp" alt="The Last Moon wide desktop view in lantern-lit bamboo village clearing." />
+  <figcaption>Desktop viewport - scaled lantern lighting, floating damage numbers, and boss countdown.</figcaption>
+</figure>
+
+<figure class="case-figure">
+  <img src="/work/project-screenshots/the-last-moon/run-draft-boss.webp" alt="Three gameplay states: swarming wave, three-card upgrade draft, and boss encounter." />
+  <figcaption>Wave survival, level-up draft cards, and segmented boss fight in portrait play.</figcaption>
+</figure>
+
+## Shipped editions and audio-visual pass
+
+I wrote the engine in TypeScript on HTML5 Canvas 2D with zero runtime dependencies in the core loop, layered with an original adaptive score synthesized from kulintang, agung, kudyapi, and drums that swells as waves tighten. Recent passes added terrain footstep sounds, destructible jars and sacks, wet shore ripples, weapon gesture sprites, achieve-gated unlocks, and the 3D Lore Preview motion film.
+
+The Free edition runs directly in the browser and on Android (Islands 1 and 2). The full Deluxe edition - unlocking Islands 3 through 5, all four heroes, and Moon Shrine depth - is live on [itch.io](https://uzzydev.itch.io/the-last-moon) for Windows, macOS, Linux, Android, and Web, with a live browser build at [the-last-moon-omega.vercel.app](https://the-last-moon-omega.vercel.app).

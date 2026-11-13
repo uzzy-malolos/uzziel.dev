@@ -5,6 +5,7 @@ import Hero from '../islands/Hero.tsx';
 import AboutTeaser from '../components/AboutTeaser.astro';
 import EcoManSpotlight from '../components/EcoManSpotlight.astro';
 import WorkGrid from '../components/WorkGrid.astro';
+import PlayStoreSpotlight from '../components/PlayStoreSpotlight.astro';
 import KonamiEgg from '../islands/KonamiEgg.tsx';
 
 const all = await getCollection('work');
@@ -17,7 +18,7 @@ const sampleSlugs = new Set([
 ]);
 const projects = all.filter((entry) => !sampleSlugs.has(entry.slug));
 // Eco-Man has its own highlight band, so the grid shows the next six.
-const selectedSlugs = new Set(['the-last-moon', 'comtus-ai', 'shirtko', 'needs-vs-wants', 'project-nero', 'tirador']);
+const selectedSlugs = new Set(['fitpace', 'needs-vs-wants', 'the-last-moon', 'comtus-ai', 'cozy-party-game', 'shirtko']);
 const featured = projects
   .filter((e) => selectedSlugs.has(e.slug))
   .sort((a, b) => a.data.order - b.data.order)
@@ -59,6 +60,8 @@ const featured = projects
       </a>
     </div>
   </section>
+
+  <PlayStoreSpotlight />
 
   <AboutTeaser />
 

@@ -105,6 +105,40 @@ const indexLabel = `${String(position).padStart(2, '0')} / ${String(total).padSt
         {data.title}
       </h1>
       <p class="mt-6 max-w-2xl text-base leading-relaxed text-cream/80 md:text-lg">{data.summary}</p>
+      {(data.playStoreUrl || data.liveUrl) && (
+        <div class="mt-7 flex flex-wrap items-center gap-3">
+          {data.playStoreUrl && (
+            <a
+              href={data.playStoreUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cursor="hover"
+              data-cursor-label="Google Play"
+              data-magnetic
+              class="inline-flex min-h-12 items-center gap-2.5 bg-gold px-5 py-3 font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-ink transition-colors hover:bg-cream"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M3.61 1.814L13.793 12 3.61 22.186a1.99 1.99 0 0 1-.486-1.31V3.124c0-.51.19-.976.486-1.31zm1.353-1.158l11.27 6.453-2.99 2.99L4.963.656zM17.34 8.215l2.79 1.598c.83.475.83 1.898 0 2.374l-2.79 1.598-3.252-3.252 3.252-3.318zM4.963 23.344l8.28-8.443 2.99 2.99-11.27 5.453z" />
+              </svg>
+              Get on Google Play
+              <span aria-hidden="true">↗</span>
+            </a>
+          )}
+          {data.liveUrl && (
+            <a
+              href={data.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cursor="hover"
+              data-magnetic
+              class="inline-flex min-h-12 items-center gap-2 border border-cream/35 bg-ink/55 px-5 py-3 font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-cream backdrop-blur-sm transition-colors hover:border-gold hover:text-gold"
+            >
+              {data.liveUrl.includes('itch.io') ? 'Play on itch.io' : 'Open live site'}
+              <span aria-hidden="true">↗</span>
+            </a>
+          )}
+        </div>
+      )}
     </div>
 
     <!-- Cover dissolves into the page -->
@@ -148,6 +182,34 @@ const indexLabel = `${String(position).padStart(2, '0')} / ${String(total).padSt
           </dd>
         </div>
       </dl>
+      {(data.playStoreUrl || data.liveUrl) && (
+        <div class="mt-5 flex flex-col gap-2.5 border-b border-line pb-5">
+          {data.playStoreUrl && (
+            <a
+              href={data.playStoreUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cursor="hover"
+              class="button-primary w-full justify-between"
+            >
+              <span>Get on Google Play</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          )}
+          {data.liveUrl && (
+            <a
+              href={data.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cursor="hover"
+              class="button-secondary w-full justify-between"
+            >
+              <span>{data.liveUrl.includes('itch.io') ? 'Play on itch.io' : 'Open live site'}</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          )}
+        </div>
+      )}
       <a href="/work" data-cursor="hover" class="link-line mt-5 inline-block font-mono text-[11px] uppercase tracking-[0.14em] text-accent">
         All projects →
       </a>

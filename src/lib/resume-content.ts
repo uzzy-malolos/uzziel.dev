@@ -57,7 +57,7 @@ export const resumeData = {
       bullets: [
         'Co-founded an independent product team with Philip James Lizardo and Aaron Christian Panergayo that builds websites, apps, business software, games, and automations.',
         'Designed and built Comtus AI, a source-based study workspace that turns documents into notes, flashcards, quizzes, and study guides (React, TypeScript, Tauri).',
-        'Designed and built Fitness Pace, a workout, food-logging, and coaching companion with an Android tester build and a live product website (Expo, Fastify, PostgreSQL).',
+        'Designed and built Fitness Pace, a workout, macro-logging, and PACE coaching companion live on Google Play and web (Expo, Fastify, PostgreSQL).',
       ],
     },
     {
@@ -102,7 +102,7 @@ export const resumeData = {
     },
     {
       title: 'The Last Moon',
-      summary: 'Mobile-first survivors-like roguelite from Philippine mythology: win back the moons Bakunawa swallowed, one island at a time. TypeScript, Vite, Canvas 2D, Capacitor. Live on the web.',
+      summary: 'Philippine mythology survivors-like roguelite across five islands with four heroes, 19 Moon Shrine blessings, and a 3D lore preview. TypeScript, Canvas 2D, Three.js, Capacitor. Live on itch.io, Android, and Web.',
     },
     {
       title: 'Comtus AI',
@@ -110,7 +110,7 @@ export const resumeData = {
     },
     {
       title: 'Fitness Pace',
-      summary: 'Fitness companion linking workout planning, food logging, progress, and optional PACE coaching. Expo, React Native, Fastify, PostgreSQL. Android tester build and live product site.',
+      summary: 'Live on Google Play (com.fitpace.app). Fitness companion linking workout history, 90-day lifts charts, meal/barcode scanning, and adaptive PACE coaching. Expo, React Native, Fastify, PostgreSQL.',
     },
     {
       title: 'ShirtKo',
@@ -118,7 +118,7 @@ export const resumeData = {
     },
     {
       title: 'Needs vs. Wants',
-      summary: 'Android spending trainer: save each purchase as a Need or a Want, then see its place in your daily budget. Kotlin, Jetpack Compose, Room, Supabase. Live.',
+      summary: 'Live on Google Play (com.needsvswants.app). Android spending trainer: seal each buy as a Need or a Want and check remaining daily budget with an on-phone advisor. Kotlin, Jetpack Compose, Room, Supabase.',
     },
     {
       title: 'Bookdesk',
@@ -150,7 +150,7 @@ export const resumeData = {
     },
     {
       title: 'Cozy Party',
-      summary: 'Browser party game with a 3D island board, 17 minigames, 8 players on one keyboard plus gamepads, and online rooms joined from a lobby browser or QR code. three.js, WebRTC. Live.',
+      summary: 'Browser party game with a walkable 3D lobby, rigged animal kin with ragdoll physics, 19 minigames, 8 players on one keyboard or gamepads, and WebRTC phone rooms. three.js. Live on Vercel.',
     },
     {
       title: 'HIVE',

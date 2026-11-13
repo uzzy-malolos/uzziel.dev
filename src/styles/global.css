@@ -657,6 +657,14 @@
   object-fit: cover;
 }
 
+.prose-case video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--border);
+  background: #070b1a;
+}
+
 .prose-case .case-figure {
   margin: 2.5rem 0;
 }

@@ -3,36 +3,38 @@ title: "Fitness Pace"
 role: "Product designer · Full-stack developer"
 year: 2026
 stack: ["Expo", "React Native", "TypeScript", "Fastify", "PostgreSQL"]
-summary: "A fitness companion that connects workout planning, food logging, progress, and optional PACE coaching - with an Android tester and a live product website."
+summary: "A fitness companion live on Google Play connecting workout planning, food and barcode logging, progress charts, and adaptive PACE coaching."
 cover: "/covers/fitpace.webp"
 logo: "/logos/fitpace.webp"
-status: "in-progress"
-order: -30
+playStoreUrl: "https://play.google.com/store/apps/details?id=com.fitpace.app"
+liveUrl: "https://fitpace-pearl.vercel.app"
+status: "live"
+order: -38
 featured: true
 ---
 
-Fitness Pace brings the parts of a training week into one place: decide what to do, record what happened, and use the result to plan the next session. Workouts, food, progress, and conversations share the same context. The product grew from PeerFit into a fitness companion with a clearer identity and an optional coach called PACE.
+Fitness Pace brings the parts of a training week into one place: decide what to train, record every set or meal, and feed that history back into the next session. Now live on [Google Play](https://play.google.com/store/apps/details?id=com.fitpace.app), the app grew out of PeerFit into a complete mobile companion alongside the [Fitness Pace website](https://fitpace-pearl.vercel.app).
 
-I built the Expo and React Native application alongside its TypeScript API. A person can choose a starter workout, adjust the session, log sets, and return to unfinished work. Food logging and meal planning sit beside weight trends and private progress photos. Community spaces and gym-buddy connections add a social layer without making every part of training public.
+Workouts, nutrition, daily steps, and coaching conversations share the same underlying state rather than living across disconnected calculators.
+
+## Guided training without rigid templates
+
+Training starts with explicit choices around available equipment, target schedule, and intensity. Users pick preset routines or build custom workouts, track active sessions set by set, inspect full workout history, and follow 90-day lift trends as baseline capacity climbs.
 
 <figure class="case-figure">
   <img src="/work/project-screenshots/fitpace-workouts.webp" alt="Fitness Pace workouts library and custom session builder." />
-  <figcaption>Workout library - presets, custom movement builder, and target zone pacing.</figcaption>
+  <figcaption>Workouts library and session builder - presets alongside customizable routines.</figcaption>
 </figure>
 
-## A coach with permission
+Nutrition logging sits beside training rather than behind a separate paywall screen. Users log meals via itemized photo estimation, barcode scan, nutrition label scan, or manual entries, keeping protein and calorie balance visible alongside workout recovery.
 
-PACE can help explain a plan, discuss a meal, or work through a training question. The server assembles the relevant account facts and controls access, usage, and actions. Coaching consent and action approval stay explicit. A conversation should help someone make a decision; it should never quietly make an account change on their behalf.
+## Clear progress and adaptive PACE coaching
 
-The app has Full, Reduced, and Off motion preferences. Workout artwork, transitions, and feedback follow that choice. Labels and touch areas remain stable while the surrounding artwork moves, and saved sessions remain understandable when motion is disabled.
-
-## The product around the app
-
-The [Fitness Pace website](https://fitpace-pearl.vercel.app) introduces the app through a short goal-and-routine quiz, real product screens, and an illustrated guide. The quiz produces a planning estimate from explicit answers. Visitors can revisit their choices or go straight to the guide.
+The progress dashboard brings weight trends, activity streaks, weekly adherence, and lift charts onto one calm overview built around realistic 7-day, 30-day, and 90-day windows. An optional coaching companion called PACE answers questions using recent workouts and logged intake as real context.
 
 <figure class="case-figure">
   <img src="/work/project-screenshots/fitpace-progress.webp" alt="Fitness Pace progress dashboard and consistency metrics." />
-  <figcaption>Progress dashboard - metric cards, workout history, and weekly goals.</figcaption>
+  <figcaption>Progress dashboard - body weight trends, consistency metrics, and PACE coach integration.</figcaption>
 </figure>
 
-The website is public. Android tester builds and a signed release candidate exist; public store availability is a separate step. The current work continues to refine the experience across training, coaching, and everyday return visits.
+On the engineering side, I built the mobile app with Expo and React Native, backed by a TypeScript Fastify API, PostgreSQL persistence, and Railway deployment. Download Fitness Pace directly on [Google Play](https://play.google.com/store/apps/details?id=com.fitpace.app) or explore the interactive planner at [fitpace-pearl.vercel.app](https://fitpace-pearl.vercel.app).

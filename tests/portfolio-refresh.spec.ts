@@ -103,3 +103,40 @@ test('without JavaScript the homepage and archive stay readable', async ({ brows
   await expect(page.locator('#project-work-grid a[href="/work/unaccounted"]')).toBeVisible();
   await context.close();
 });
+
+test('Google Play apps are promoted on home, catalog, and case study pages', async ({ page, request }) => {
+  await page.goto('/');
+  const playSection = page.locator('#google-play');
+  await playSection.scrollIntoViewIfNeeded();
+  await expect(playSection).toBeVisible();
+  await expect(playSection.locator('a[href="https://play.google.com/store/apps/details?id=com.fitpace.app"]')).toBeVisible();
+  await expect(playSection.locator('a[href="https://play.google.com/store/apps/details?id=com.needsvswants.app"]')).toBeVisible();
+
+  for (const img of await playSection.locator('img').all()) {
+    await expect.poll(() => img.evaluate((el) => (el as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+  }
+
+  for (const slug of ['fitpace', 'needs-vs-wants']) {
+    const res = await page.goto(`/work/${slug}/`);
+    expect(res?.status()).toBe(200);
+    await expect(page.locator('a[href^="https://play.google.com/store/apps/details?id="]').first()).toBeVisible();
+  }
+});
+
+test('The Last Moon embeds the 3D preview MP4 and updated cases load cleanly', async ({ page, request }) => {
+  const res = await page.goto('/work/the-last-moon/');
+  expect(res?.status()).toBe(200);
+  const video = page.locator('article.prose-case video');
+  await expect(video).toBeVisible();
+  const sourceSrc = await video.locator('source').getAttribute('src');
+  expect(sourceSrc).toBe('/work/project-screenshots/the-last-moon/lore-preview-3d.mp4');
+  const videoRes = await request.head(sourceSrc!);
+  expect(videoRes.status()).toBe(200);
+
+  for (const slug of ['life-with-sophia', 'cozy-party-game']) {
+    const r = await page.goto(`/work/${slug}/`);
+    expect(r?.status()).toBe(200);
+    await expect(page.locator('#case-cover-img')).toBeVisible();
+    await expect.poll(() => page.locator('#case-cover-img').evaluate((el) => (el as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+  }
+});

@@ -9,12 +9,13 @@ interface Props {
   stack: string[];
   cover: string;
   logo?: string;
+  playStoreUrl?: string;
   highlight?: boolean;
   index?: number;
   aspect?: 'wide' | 'tall';
 }
 
-const { slug, title, role, year, status, summary, stack, cover, logo, highlight = false, index = 0, aspect = 'wide' } = Astro.props;
+const { slug, title, role, year, status, summary, stack, cover, logo, playStoreUrl, highlight = false, index = 0, aspect = 'wide' } = Astro.props;
 
 const dotClasses: Record<Props['status'], string> = {
   live: 'bg-[#9ec87f]',
@@ -68,9 +69,16 @@ const stackLine = visibleStack.join(' · ') + (remainingStack > 0 ? ` +${remaini
         {statusLabel[status]}
       </span>
 
-      {highlight && (
+      {highlight ? (
         <span class="absolute right-4 top-4 bg-gold px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-ink">
           Highlight
+        </span>
+      ) : playStoreUrl && (
+        <span class="absolute right-4 top-4 inline-flex items-center gap-1.5 bg-leaf px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-cream">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M4 2.5v19l16-9.5-16-9.5z" />
+          </svg>
+          Google Play
         </span>
       )}
 

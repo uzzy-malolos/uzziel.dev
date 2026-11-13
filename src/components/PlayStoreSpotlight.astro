@@ -1,0 +1,145 @@
+---
+const apps = [
+  {
+    slug: 'fitpace',
+    name: 'Fitness Pace',
+    packageId: 'com.fitpace.app',
+    category: 'Fitness · Health · AI Coach',
+    logo: '/logos/fitpace.webp',
+    screen: '/work/project-screenshots/fitpace-workouts.webp',
+    screenWidth: 600,
+    screenHeight: 1298,
+    screenAlt: 'Fitness Pace workouts library and custom session builder on Android.',
+    pitch:
+      'Track workouts, runs, daily steps, and macros with your adaptive AI coach PACE, meal photo scanner, and 90-day lifts charts.',
+    highlights: ['Custom & preset workouts', 'Meal & barcode logging', 'PACE adaptive coach'],
+    playStoreUrl: 'https://play.google.com/store/apps/details?id=com.fitpace.app',
+    liveUrl: 'https://fitpace-pearl.vercel.app',
+  },
+  {
+    slug: 'needs-vs-wants',
+    name: 'Needs vs. Wants',
+    packageId: 'com.needsvswants.app',
+    category: 'Personal Finance · Spending Trainer',
+    logo: '/logos/needs-vs-wants.webp',
+    screen: '/work/project-screenshots/needs-vs-wants/home.webp',
+    screenWidth: 720,
+    screenHeight: 1280,
+    screenAlt: 'Needs vs. Wants Android home screen showing Today Needs vs Wants split and remaining budget.',
+    pitch:
+      'Seal each daily buy as a Need or a Want before logging it, then check where it sits against your daily limit with an on-phone advisor.',
+    highlights: ['One-tap Need or Want seal', 'Offline-first Room ledger', 'On-phone budget advisor'],
+    playStoreUrl: 'https://play.google.com/store/apps/details?id=com.needsvswants.app',
+    liveUrl: 'https://needs-vs-wants.vercel.app',
+  },
+];
+---
+
+<section id="google-play" class="container scroll-mt-24 border-t border-line py-20 md:py-28" aria-labelledby="google-play-title">
+  <div class="flex items-baseline justify-between gap-4 border-b border-line pb-5" data-reveal>
+    <h2 id="google-play-title">Published on <em class="text-accent">Google Play.</em></h2>
+    <p class="meta-mono hidden shrink-0 sm:block">03 · Google Play</p>
+  </div>
+
+  <div class="grid gap-6 pt-10 pb-12 md:grid-cols-[1fr_340px] md:items-end md:pb-14">
+    <p class="max-w-xl text-lg leading-relaxed text-stone" data-reveal>
+      Two Android products built end to end and live on Google Play today - one for training and nutrition consistency, one for daily spending habits.
+    </p>
+    <p class="meta-mono text-leaf md:justify-self-end" data-reveal data-reveal-delay="100">
+      Available now on Android
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
+    {apps.map((app, i) => (
+      <article
+        class="flex h-full flex-col justify-between gap-8 border border-line bg-raised p-6 md:p-8"
+        data-reveal
+        data-reveal-delay={i * 100}
+      >
+        <div class="flex flex-col gap-6 sm:flex-row sm:items-start">
+          <div class="mx-auto w-[140px] shrink-0 overflow-hidden rounded-[20px] border-4 border-ink bg-ink shadow-md sm:mx-0">
+            <img
+              src={app.screen}
+              alt={app.screenAlt}
+              width={app.screenWidth}
+              height={app.screenHeight}
+              loading="lazy"
+              decoding="async"
+              class="aspect-[9/19] w-full object-cover object-top"
+            />
+          </div>
+
+          <div class="min-w-0 flex-1">
+            <div class="flex items-center gap-3.5">
+              <img
+                src={app.logo}
+                alt=""
+                width="48"
+                height="48"
+                loading="lazy"
+                decoding="async"
+                class="app-logo h-12 w-12 shrink-0"
+              />
+              <div class="min-w-0">
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="inline-flex items-center gap-1.5 bg-leaf/15 px-2 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-leaf dark:bg-leaf/25 dark:text-[#b4e095]">
+                    <span class="h-1.5 w-1.5 bg-current" aria-hidden="true"></span>
+                    Google Play
+                  </span>
+                </div>
+                <h3 class="mt-1.5 text-2xl leading-tight md:text-[1.75rem]">{app.name}</h3>
+              </div>
+            </div>
+
+            <p class="meta-mono mt-3 text-stone">{app.category}</p>
+            <p class="mt-4 text-sm leading-relaxed text-stone">{app.pitch}</p>
+
+            <ul class="mt-5 space-y-1.5 border-t border-line pt-4">
+              {app.highlights.map((item) => (
+                <li class="flex items-baseline gap-2.5 font-mono text-[11px] uppercase tracking-[0.06em] text-stone">
+                  <span class="inline-block h-1.5 w-1.5 shrink-0 bg-gold" aria-hidden="true"></span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-3 border-t border-line pt-6">
+          <a
+            href={app.playStoreUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-cursor="hover"
+            data-cursor-label="Google Play"
+            data-magnetic
+            class="button-primary"
+          >
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M3.61 1.814L13.793 12 3.61 22.186a1.99 1.99 0 0 1-.486-1.31V3.124c0-.51.19-.976.486-1.31zm1.353-1.158l11.27 6.453-2.99 2.99L4.963.656zM17.34 8.215l2.79 1.598c.83.475.83 1.898 0 2.374l-2.79 1.598-3.252-3.252 3.252-3.318zM4.963 23.344l8.28-8.443 2.99 2.99-11.27 5.453z" />
+            </svg>
+            Get on Google Play
+            <span aria-hidden="true">→</span>
+          </a>
+          <a
+            href={`/work/${app.slug}`}
+            data-cursor="hover"
+            class="button-secondary"
+          >
+            Case study
+          </a>
+          <a
+            href={app.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-cursor="hover"
+            class="link-line ml-auto font-mono text-[11px] uppercase tracking-[0.12em] text-stone transition-colors hover:text-accent"
+          >
+            Product site →
+          </a>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>

@@ -2,24 +2,26 @@
 title: "Cozy Party"
 role: "Solo developer"
 year: 2026
-stack: ["JavaScript", "Canvas", "three.js", "WebRTC", "Netlify"]
-summary: "A Pummel Party-style couch game in the browser — 3D island board, 17 minigames, 8 players on one keyboard plus gamepads, and online rooms you join from a lobby browser or a QR code."
+stack: ["JavaScript", "three.js", "WebRTC", "Vercel"]
+summary: "A Pummel Party-style couch and online party game in the browser - 3D island board, 19 minigames, ragdoll kin, 8 players on one keyboard, gamepads, or phones."
 cover: "/covers/cozy-party-game.webp"
+liveUrl: "https://cozy-party-indol.vercel.app"
 status: "live"
-order: -7
+order: -25
 featured: true
 ---
 
-Cozy Party is the game you open when friends are already on the couch: cute blob characters racing around a board and beating each other up in minigames, Pummel Party style, straight from a browser tab. No install, no accounts, no build step — vanilla JavaScript ES modules, a 2D canvas, and three.js for the parts that deserve depth.
+Cozy Party is the game you open when friends are ready to play right away: rigged 3D animal kin racing across an island board and competing across 19 minigames, straight from a browser tab. No install, no accounts, and no build step required for players.
 
-The board is a real 3D island with a follow camera, physical dice, pawns, and a relocating trophy; the finale is a 3D podium. Minigames are 15 handcrafted 2D games plus two true-3D ones (Rolling Rumble, Gem Grotto) across survival, reaction, and objective categories. HUD, menus, and particles live on a transparent 2D canvas projected over the WebGL layer, and the whole thing falls back to 2D if the CDN fails.
+<figure class="case-figure">
+  <img src="/work/project-screenshots/cozy-party-home.webp" alt="Cozy Party title screen live on Vercel with 3D animal characters, couch play, and online room buttons." />
+  <figcaption>Cozy Party live on Vercel - 1 to 8 players across local keyboard, gamepads, and mobile phone controllers.</figcaption>
+</figure>
 
-## Eight players, one keyboard
+## 3D board, walkable lobby, and 19 minigames
 
-Local play packs four shared-keyboard slots (WASD+E, arrows, IJKL+O, TFGH+Y), unlimited gamepad slots on standard mapping, and CPU bots with per-game AI to fill the roster. Board items — Double Dice, Rocket, Trap, Swap, Shield, Magnet — keep the leader honest.
+Originally prototyped across a hybrid 2D canvas and three.js renderer, the game now runs in a unified 3D three.js world with a walkable 3D lobby, rigged Blender animal characters with ragdoll physics, wind-swayed scenery landmarks, host party stakes, and dynamic camera follow.
 
-## Online multiplayer without netcode
+The roster spans 19 minigames with fast input coalescing, eased mood animations, and mid-match seat rejoin if someone drops on a spotty connection. Up to 8 players share a single keyboard on couch night, plug in standard controllers, or scan a room code from a phone over WebRTC peer data channels.
 
-The online mode cheats in the smartest way available. Instead of writing per-game networking for 17 minigames, the host machine stays fully authoritative and streams a composite video-and-audio capture of the game over WebRTC; guests stream inputs back as lossless press-counter edges. A 4-letter room code joins any device — phone guests get a touch joystick and action button, and a bot replaces anyone who disconnects mid-game. Every mode works online for free because nothing about the games themselves knows the network exists.
-
-The game is live on Netlify. A CDP test suite drives it like a player — 39 of 40 local checks pass (the miss is an informational pacing check), and the online scenario runs 6 for 6 against production: room creation, join by code, roster sync, remote inputs held on the host, and live video frames measured on the guest's screen.
+Play immediately in any browser at [cozy-party-indol.vercel.app](https://cozy-party-indol.vercel.app).
