@@ -35,20 +35,47 @@ const intro =
   "I'm a fourth-year student at UPLB, a full-stack creator, and a co-founder of Levi Co.. I build indie games, AI tools, mobile apps, and websites for small teams and my church. I work mostly from Bay, Laguna with a Xiaomi Pad 6 and a folding keyboard; the heavy builds run on a small Windows tower at home.";
 
 const timeline = [
-  { year: '2018', text: 'Started volunteering as web dev for The Lord\'s Worship Center.' },
-  { year: '2023', text: 'Joined Oka\'s Farm as farm accountant.' },
-  { year: '2024', text: 'Concluded Oka\'s Farm role; expanded into independent product work.' },
+  { year: '2018', text: "Started volunteering as web dev for The Lord's Worship Center." },
+  { year: '2023', text: "Joined Oka's Farm as farm accountant." },
+  { year: '2024', text: "Concluded Oka's Farm role; expanded into independent product work." },
   { year: '2025', text: 'TIRADOR development begins; AI micro-agency conceived.' },
-  { year: '2026', text: 'Yusel AI, ApplyGuard PH, and Pomodoro App shipped; Heart and Soil town map; Long Way Around story complete.' },
+  {
+    year: '2026',
+    text: 'Co-founded Levi Co.; published Fitness Pace and Needs vs. Wants on Google Play, shipped The Last Moon, Comtus AI desktop, and Cozy Party v1.2, and began building Spinroot and Rimegard.',
+  },
 ];
 
 const building = [
-  { name: 'TIRADOR', text: 'Top-down pixel roguelite in Godot. Playable arena foundation shipped; slingshot combat loop in a barangay TileMap.' },
-  { name: 'Heart and Soil', text: 'Cozy farming sim in Godot. Town map transition, fiesta decorations, fishing, cooking, save/load — systems stacking.' },
-  { name: 'Yusel AI', text: 'Next.js chat app for Filipino sellers and freelancers. Free-first models, templates, PHP Pro billing in flight.' },
-  { name: 'Long Way Around', text: '2D pixel RPG in Godot 4.6. Four-act story complete with three endings; itch.io ship gate passing.' },
-  { name: 'Pomodoro App (Ponggi)', text: 'Flutter pomodoro with five memory-game breaks, physics mascot, tray support on Windows. 82 tests green.' },
-  { name: 'ApplyGuard PH', text: 'Free browser scanner for remote job posts. Verdict, fit score, scam risk — no login, runs on device.' },
+  {
+    name: 'Spinroot',
+    slug: 'spinroot',
+    text: 'Cozy Hi-Bit pixel farm above a dark underground delve in Godot 4.6, linked by a 3x3 Wishing Reel shrine and 148 passing headless tests.',
+  },
+  {
+    name: 'Rimegard',
+    slug: 'rimegard',
+    text: 'PC-first 3D frozen-industrial RPG in Godot 4.6 and Blender approaching Steam release, built around Titan Boilers and Body Heat survival.',
+  },
+  {
+    name: 'Cozy Party: Steam Edition',
+    slug: 'cozy-party-steam',
+    text: 'Unity 6 URP active-ragdoll 3D party brawler with 14-shell volumetric plush fur and six playable scenes alongside the live browser edition.',
+  },
+  {
+    name: 'Eco-Man',
+    slug: 'eco-man',
+    text: 'Native Kotlin and Compose Android business record book (v1.0.14) for reviewed receipts, statements, private originals, and multilingual books.',
+  },
+  {
+    name: 'Comtus AI',
+    slug: 'comtus-ai',
+    text: 'Local-first study workspace live on web, Windows, and macOS (v0.3.9) turning PDFs and notes into cited answers, flashcards, and exam plans.',
+  },
+  {
+    name: 'FoodToGo',
+    slug: 'foodtogo',
+    text: 'Philippine neighborhood food-delivery monorepo covering consumer ordering, merchant controls, rider COD dispatch, and operations tooling.',
+  },
 ];
 
 const photos = [
@@ -66,7 +93,7 @@ const photos = [
   <section class="container pb-16 pt-12 md:pt-16">
     <div class="ledger-head" data-reveal>
       <p class="eyebrow">About · The person</p>
-      <p class="meta-mono hidden sm:block">Bay · Laguna — 14.18°N, 121.28°E</p>
+      <p class="meta-mono hidden sm:block">Bay · Laguna · 14.18°N, 121.28°E</p>
     </div>
 
     <div class="grid gap-12 pt-10 lg:grid-cols-12 lg:gap-14">
@@ -79,9 +106,9 @@ const photos = [
           {intro}
         </p>
       </div>
-      <figure class="relative mx-auto w-full max-w-sm lg:col-span-5 lg:max-w-none" data-reveal data-reveal-delay="160">
-        <div class="absolute -bottom-3 -right-3 h-full w-full border border-gold/50" aria-hidden="true"></div>
-        <div class="relative overflow-hidden border border-line-strong">
+      <figure class="group relative mx-auto w-full max-w-sm lg:col-span-5 lg:max-w-none" data-reveal="zoom" data-reveal-delay="160">
+        <div class="absolute -bottom-3 -right-3 h-full w-full border border-gold/50 transition-transform duration-500 ease-out motion-safe:group-hover:translate-x-1.5 motion-safe:group-hover:translate-y-1.5" aria-hidden="true"></div>
+        <div class="relative overflow-hidden border border-line-strong transition-colors duration-300 group-hover:border-gold/70">
           <img
             src="/photos/uzziel-studio.webp"
             alt="Emmanuel Uzziel Malolos studio portrait"
@@ -89,7 +116,7 @@ const photos = [
             height="1000"
             loading="eager"
             decoding="async"
-            class="aspect-[4/5] w-full object-cover object-top"
+            class="aspect-[4/5] w-full object-cover object-top transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.03]"
           />
           <div class="dither-up dither-page absolute inset-x-0 bottom-0" aria-hidden="true"></div>
         </div>
@@ -130,15 +157,18 @@ const photos = [
       <h2 class="text-3xl lg:col-span-4" data-reveal>What I'm building right now</h2>
       <div class="lg:col-span-8">
         {building.map((item, i) => (
-          <div
-            class="grid grid-cols-[2.5rem_1fr] items-baseline gap-4 border-b border-line py-5 first:border-t md:grid-cols-[2.5rem_14rem_1fr] md:gap-6"
+          <a
+            href={`/work/${item.slug}`}
+            data-cursor="hover"
+            data-cursor-label="View case"
+            class="ledger-row group grid grid-cols-[2.5rem_1fr] items-baseline gap-4 border-b border-line py-5 first:border-t md:grid-cols-[2.5rem_14rem_1fr] md:gap-6"
             data-reveal
             data-reveal-delay={Math.min(i * 70, 350)}
           >
             <span class="font-mono text-[11px] text-gold" aria-hidden="true">0{i + 1}</span>
-            <h3 class="text-xl leading-tight">{item.name}</h3>
+            <h3 class="text-xl leading-tight transition-colors group-hover:text-accent">{item.name}</h3>
             <p class="col-span-2 mt-1 text-sm leading-relaxed text-stone md:col-span-1 md:mt-0">{item.text}</p>
-          </div>
+          </a>
         ))}
       </div>
     </div>
@@ -148,7 +178,7 @@ const photos = [
   <section class="container py-16 md:py-20">
     <div class="ledger-head" data-reveal>
       <p class="eyebrow">03 · The route</p>
-      <p class="meta-mono hidden sm:block">2018 — present</p>
+      <p class="meta-mono hidden sm:block">2018 to present</p>
     </div>
     <div class="grid gap-8 pt-10 lg:grid-cols-12">
       <h2 class="text-3xl lg:col-span-4" data-reveal>Where I've been</h2>
@@ -159,7 +189,7 @@ const photos = [
             I have been the volunteer web developer for The Lord's Worship Center in Bay since 2018. The role started small (HTML and a contact form) and has grown into a small design system rewrite this year.
           </p>
           <p data-reveal data-reveal-delay="80" class="text-sm leading-relaxed text-stone">
-            From March 2023 to May 2024 I kept the books for Oka's Farm. Fourteen months of payables, payroll, and monthly closings — the work that taught me what the textbooks leave out.
+            From March 2023 to May 2024 I kept the books for Oka's Farm: fourteen months of payables, payroll, and monthly closings, the work that taught me what the textbooks leave out.
           </p>
         </div>
       </div>
@@ -176,10 +206,10 @@ const photos = [
       <h2 class="text-3xl lg:col-span-4" data-reveal>How I work</h2>
       <div class="grid gap-8 md:grid-cols-2 lg:col-span-8">
         <p data-reveal data-reveal-delay="60" class="leading-relaxed">
-          Most writing and light development happens on a Xiaomi Pad 6 with a folding keyboard — coffee shop, library, jeepney, kitchen table. The heavier builds run on a small Windows tower at home: Godot exports, video renders, anything that hits the GPU.
+          Most writing and light development happens on a Xiaomi Pad 6 with a folding keyboard across coffee shops, libraries, jeepneys, and the kitchen table. The heavier builds run on a small Windows tower at home for Godot and Unity exports, Blender renders, and video mixes.
         </p>
         <p data-reveal data-reveal-delay="120" class="leading-relaxed">
-          Claude is my collaborator across project notes, code, and prose. I am faith-rooted (TLWC is family) but I do not push it into client work. If a deliverable is for a business, the work answers to the business.
+          AI coding tools collaborate across project notes, code, and prose. I am faith-rooted (TLWC is family) but I do not push it into client work. If a deliverable is for a business, the work answers to the business.
         </p>
       </div>
     </div>
@@ -194,8 +224,8 @@ const photos = [
     <h2 class="sr-only">A few photos</h2>
     <div class="grid gap-6 pt-10 md:grid-cols-2 md:gap-8">
       {photos.map((p, i) => (
-        <figure data-reveal data-reveal-delay={i * 100}>
-          <div class="relative overflow-hidden border border-line-strong">
+        <figure class="group" data-reveal="zoom" data-reveal-delay={i * 100}>
+          <div class="relative overflow-hidden border border-line-strong transition-colors duration-300 group-hover:border-gold/70">
             <img
               src={p.src}
               alt={p.caption}
@@ -203,7 +233,7 @@ const photos = [
               height="900"
               loading="lazy"
               decoding="async"
-              class="aspect-[4/3] w-full object-cover object-top"
+              class="aspect-[4/3] w-full object-cover object-top transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.03]"
             />
             <div class="dither-up dither-page absolute inset-x-0 bottom-0" aria-hidden="true"></div>
           </div>

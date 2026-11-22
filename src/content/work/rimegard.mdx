@@ -1,0 +1,48 @@
+---
+title: "Rimegard"
+role: "Solo developer · 3D & systems"
+year: 2026
+stack: ["Godot 4.6", "GDScript", "Blender", "3D RPG"]
+summary: "A PC-first 3D frozen-industrial RPG approaching Steam release: survive -70C wastes around the Titan Boilers with classic click-to-move combat and body-heat tactics."
+cover: "/covers/rimegard.webp"
+status: "in-progress"
+order: -31
+featured: true
+---
+
+Rimegard is a PC-first 3D isometric RPG set after the Great Whiteout of 1889, when deep crust drilling ruptured a subterranean cryo-seal and froze the surface world. Survivors cluster inside dormant volcanic craters around city-sized Titan Boilers, stepping beyond the airlocks into Frost-Moss Flats and Sub-Zero Culvert B1 to harvest Heart-Cinders before the furnace pressure drops.
+
+<figure class="case-figure case-wide">
+  <img src="/work/project-screenshots/rimegard/gate-key-art.webp" alt="Rimegard South Rim Gate key art showing a cloaked traveler standing inside a riveted steel airlock looking out onto snow-buried rail cars." />
+  <figcaption>South Rim Gate airlock opening onto the snow-choked outer flats.</figcaption>
+</figure>
+
+## Classic grind meets thermal survival
+
+Combat combines keyboard-and-mouse click-to-move action, job changes, hireable mercenaries, and supply management with a persistent Body Heat system. Venture too far from brazier camps or steam vents and the cold narrows your options; light a temporary camp, clear frozen culverts, and pull enemy packs carefully before ice reclaims the ground.
+
+<figure class="case-figure">
+  <img src="/work/project-screenshots/rimegard/caldera.webp" alt="Aerial view of Caldera Prime built in concentric heat rings around the towering steaming central boiler inside a snow-rimmed volcanic crater." />
+  <figcaption>Caldera Prime: concentric heat rings pressed against the frozen crater wall.</figcaption>
+</figure>
+
+<figure class="case-figure case-wide">
+  <img src="/work/project-screenshots/rimegard/brazier-camp.webp" alt="Three travelers gathered around a glowing iron brazier in snow-covered flats while glowing ember-cracked Soot-Puff creatures lurk behind them." />
+  <figcaption>Brazier camp pacing between encounters in Frost-Moss Flats.</figcaption>
+</figure>
+
+## Built in Godot 4.6 and Blender for PC
+
+The playable offline story slice runs on Godot 4.6.3 (Compatibility renderer) with 14 Blender-rigged 3D actors, scripted terrain and masonry generators (`tools/blender/build_environment.py`, `tools/build_mob_surfaces.py`), and an authoritative local host handling zone transfers, inventory, party state, and saves.
+
+<figure class="case-figure case-wide">
+  <img src="/work/project-screenshots/rimegard/titan-boiler.webp" alt="Workers standing on an iron catwalk facing the roaring furnace mouth of the Titan Boiler." />
+  <figcaption>The Titan Boiler furnace core anchoring Caldera Prime.</figcaption>
+</figure>
+
+<figure class="case-figure">
+  <img src="/work/project-screenshots/rimegard/culvert.webp" alt="Frozen brick industrial culvert lined with red iron valve wheels, icicles, hanging oil lanterns, and frost-covered steel grates." />
+  <figcaption>Sub-Zero Culvert B1: subterranean steam pipes, valve bridges, and the Foreman boss route.</figcaption>
+</figure>
+
+Current work targets the 30-minute continuous offline playtest from South Rim Gate through Frost-Moss Flats to the Culvert B1 Foreman, verifying terrain footing, camera clarity at 1080p, and desktop export parity ahead of Steam Early Access.

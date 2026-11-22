@@ -77,8 +77,8 @@ const indexLabel = `${String(position).padStart(2, '0')} / ${String(total).padSt
       transition:name={`cover-${slug}`}
       class="absolute inset-0 h-full w-full object-cover will-change-transform"
     />
-    <div class="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/40 to-ink/25" aria-hidden="true"></div>
-    <div class="absolute inset-0 bg-gradient-to-r from-ink/60 via-ink/20 to-transparent" aria-hidden="true"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-ink/88 via-ink/42 to-ink/25" aria-hidden="true"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-ink/65 via-ink/22 to-transparent" aria-hidden="true"></div>
 
     <div class="container relative pb-16 pt-28 md:pb-20">
       {data.logo && (
@@ -156,7 +156,7 @@ const indexLabel = `${String(position).padStart(2, '0')} / ${String(total).padSt
         <div class="flex items-baseline justify-between gap-6 border-b border-line py-4">
           <dt class="meta-mono">Status</dt>
           <dd class="flex items-center gap-2 text-right">
-            <span class={`inline-block h-1.5 w-1.5 ${data.status === 'live' ? 'bg-leaf' : data.status === 'archived' ? 'bg-stone' : 'bg-gold'}`} aria-hidden="true"></span>
+            <span class={`inline-block h-1.5 w-1.5 ${data.status === 'live' ? 'status-dot-live rounded-full bg-leaf text-leaf' : data.status === 'archived' ? 'bg-stone' : 'bg-gold'}`} aria-hidden="true"></span>
             {statusLabel[data.status]}
           </dd>
         </div>
@@ -218,23 +218,23 @@ const indexLabel = `${String(position).padStart(2, '0')} / ${String(total).padSt
 
   <nav class="container border-t border-line pb-24 pt-4" aria-label="Case study pagination" data-reveal>
     <div class="grid grid-cols-1 md:grid-cols-2 md:divide-x md:divide-[color:var(--border)]">
-      <div class="min-h-24 py-6 md:pr-10">
+      <div class="min-h-24 py-4 md:pr-8">
         {prev && (
-          <a href={`/work/${prev.slug}`} data-cursor="hover" class="group block">
+          <a href={`/work/${prev.slug}`} data-cursor="hover" data-cursor-label="Previous" class="ledger-row group block p-4">
             <p class="meta-mono flex items-center gap-2">
-              <span aria-hidden="true" class="inline-block transition-transform duration-200 group-hover:-translate-x-1">←</span>
+              <span aria-hidden="true" class="inline-block transition-transform duration-200 group-hover:-translate-x-1.5">←</span>
               Previous
             </p>
             <p class="mt-3 font-display text-2xl leading-tight transition-colors group-hover:text-accent md:text-3xl">{prev.data.title}</p>
           </a>
         )}
       </div>
-      <div class="min-h-24 border-t border-line py-6 md:border-t-0 md:pl-10 md:text-right">
+      <div class="min-h-24 border-t border-line py-4 md:border-t-0 md:pl-8 md:text-right">
         {next && (
-          <a href={`/work/${next.slug}`} data-cursor="hover" class="group block">
+          <a href={`/work/${next.slug}`} data-cursor="hover" data-cursor-label="Next" class="ledger-row group block p-4">
             <p class="meta-mono flex items-center gap-2 md:justify-end">
               Next
-              <span aria-hidden="true" class="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
+              <span aria-hidden="true" class="inline-block transition-transform duration-200 group-hover:translate-x-1.5">→</span>
             </p>
             <p class="mt-3 font-display text-2xl leading-tight transition-colors group-hover:text-accent md:text-3xl">{next.data.title}</p>
           </a>
@@ -248,39 +248,50 @@ const indexLabel = `${String(position).padStart(2, '0')} / ${String(total).padSt
     import { ScrollTrigger } from 'gsap/ScrollTrigger';
     gsap.registerPlugin(ScrollTrigger);
 
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const img = document.getElementById('case-cover-img');
-    const cover = document.getElementById('case-cover');
-    if (img && cover && !reduced) {
-      const tween = gsap.to(img, {
-        scale: 1.08,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: cover,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: 0.5,
-        },
-      });
-      document.addEventListener('astro:before-swap', () => {
-        tween.scrollTrigger?.kill();
-        tween.kill();
-      }, { once: true });
-    }
+    const initCaseMotion = () => {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const cover = document.getElementById('case-cover');
+      const img = document.getElementById('case-cover-img');
+      const progress = document.getElementById('read-progress');
+      const article = document.querySelector<HTMLElement>('article.prose-case');
+      if (!cover && !article) return;
 
-    const progress = document.getElementById('read-progress');
-    const article = document.querySelector<HTMLElement>('article.prose-case');
-    if (progress && article && !reduced) {
-      gsap.to(progress, {
-        scaleX: 1,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: article,
-          start: 'top 10%',
-          end: 'bottom 80%',
-          scrub: 0.3,
-        },
+      const ctx = gsap.context(() => {
+        if (img && cover) {
+          gsap.to(img, {
+            scale: 1.09,
+            yPercent: 6,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: cover,
+              start: 'top top',
+              end: 'bottom top',
+              scrub: 0.5,
+            },
+          });
+        }
+        if (progress && article) {
+          gsap.fromTo(
+            progress,
+            { scaleX: 0 },
+            {
+              scaleX: 1,
+              ease: 'none',
+              scrollTrigger: {
+                trigger: article,
+                start: 'top 12%',
+                end: 'bottom 80%',
+                scrub: 0.3,
+              },
+            },
+          );
+        }
       });
-    }
+
+      document.addEventListener('astro:before-swap', () => ctx.revert(), { once: true });
+    };
+
+    initCaseMotion();
+    document.addEventListener('astro:page-load', initCaseMotion);
   </script>
 </BaseLayout>

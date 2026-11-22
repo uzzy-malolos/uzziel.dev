@@ -1,0 +1,28 @@
+---
+title: "Think 5"
+role: "Solo developer · Android"
+year: 2026
+stack: ["Kotlin", "Jetpack Compose", "Android", "Local Multiplayer"]
+summary: "An offline-first Android speed-trivia game in Kotlin and Jetpack Compose: name five valid answers before the timer runs out, solo or in local party mode."
+cover: "/covers/think-5.webp"
+status: "completed"
+order: -23
+featured: false
+---
+
+Think 5 boils party trivia down to one clean loop: read a prompt like "Name 5 countries in Asia," pick a difficulty-locked clock (1 minute, 1.5 minutes, or 2 minutes), and type five valid answers before the bar hits zero. No accounts, no ads, and no internet connection needed.
+
+<figure class="case-figure case-phones">
+  <div>
+    <img src="/work/project-screenshots/think-5/home.webp" alt="Think 5 home screen in dark mode showing difficulty selectors, Play 5 Rush primary button, 5 Streak mode, and Daily Challenge." />
+    <img src="/work/project-screenshots/think-5/playing.webp" alt="Think 5 active gameplay screen showing 0:55 countdown, Geography prompt Name 5 countries in Asia, validated answer Japan, duplicate warning, and hint button." />
+    <img src="/work/project-screenshots/think-5/results.webp" alt="Think 5 round results screen scoring 58 out of 60 points with speed bonus, time remaining, and perfect-round streak." />
+  </div>
+  <figcaption>Android device captures: home setup, live validation with duplicate guards, and speed-bonus results.</figcaption>
+</figure>
+
+## Offline database, 5 Streak, and Filipino support
+
+Built natively in Kotlin and Jetpack Compose, Think 5 validates entries locally against its bundled question and alias dataset, blocks duplicate answers immediately, offers point-deducting hints, and supports both English and Filipino interfaces in light and dark themes.
+
+Alongside classic 5 Rush rounds, players can push a survival run in **5 Streak** (five out of five to stay alive), try the shared **Daily Challenge**, or run local **Party Mode** passes across phones. Keyboard-open landscape layouts, 200% enlarged-font accessibility scaling, pause guards, and JVM unit tests were verified directly on device.

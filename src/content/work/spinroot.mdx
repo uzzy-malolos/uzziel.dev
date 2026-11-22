@@ -1,0 +1,41 @@
+---
+title: "Spinroot"
+role: "Solo developer · pixel artist"
+year: 2026
+stack: ["Godot 4.6", "GDScript", "Aseprite", "Pixel Art"]
+summary: "A cozy Hi-Bit pixel farm above a dark underground delve, linked by a 3x3 Wishing Reel shrine that summons Mole, Bee, and Newt helpers."
+cover: "/covers/spinroot.webp"
+logo: "/logos/spinroot.webp"
+status: "in-progress"
+order: -39
+featured: true
+---
+
+Spinroot pairs a quiet morning farm with a torchlit underground cave, joined by one shared mechanic: the Wishing Reel. Every dawn you turn a 3x3 folklore shrine with clover tokens to summon helper critters, seasonal seed packets, and the day's weather. Bad luck costs time or a weed-clearing chore, never progress, and real money never touches the shrine.
+
+<figure class="case-figure case-wide">
+  <img src="/work/project-screenshots/spinroot/capsule.webp" alt="Spinroot key art showing the sunny surface farm, Wishing Reel shrine, Mole, Bee, and Newt helpers above an underground mineshaft and root boss." />
+  <figcaption>Surface farm above, torchlit mineshaft and Rootmaw cavern below.</figcaption>
+</figure>
+
+## Bending the odds instead of chasing randomness
+
+The Wishing Reel runs an 8-line paytable (three rows, three columns, two diagonals) across eight symbols: Mole, Bee, Newt, Seed, Sun, Rain, wild Clover, and Weeds. An odds panel displays every symbol's current weight openly. Feeding helpers raises tomorrow's Luck, charms bias individual symbols, Hold locks a column for a spin, and a dry-spin pity rule guarantees a helpful line after four blank turns.
+
+Spins resolve from the day's seed and spin counter so reloading cannot spoof outcomes. I wrote two headless simulation suites (`sim_reel.gd` over 100,000 spins and `sim_season.gd` over full 56-day years) to verify that the shrine adds flavor and strategy without overshadowing actual farming income.
+
+<figure class="case-figure case-wide">
+  <img src="/work/project-screenshots/spinroot/shrine-stages.webp" alt="Four restoration tiers of the Spinroot Wishing Reel pixel shrine, progressing from moss-covered stone to gold-trimmed temple with lanterns and clover banners." />
+  <figcaption>Shrine restoration stages I through III, each raising the farm's permanent Luck floor.</figcaption>
+</figure>
+
+## Helpers, two seasons, and strict pixel discipline
+
+Each summoned critter carries a surface job and a dungeon role: Moles clear weeds for compost and tank underground grubs, Bees pollinate crops for gold-quality harvests and sting at range, and Newts water dry soil and heal the hero in combat. Three matching helpers merge into a stronger tier, or train up in the Den.
+
+<figure class="case-figure case-wide">
+  <img src="/work/project-screenshots/spinroot/reel-and-farmhouse.webp" alt="Spinroot pixel farmhouse reference beside the 8 Wishing Reel symbol sprites: Mole, Bee, Newt, Seed bag, Sun, Rain cloud, Clover, and Thistle weeds." />
+  <figcaption>Farmhouse style anchor and the eight animated Wishing Reel symbols.</figcaption>
+</figure>
+
+Built in Godot 4.6 (GL Compatibility) at 640x360 integer-scaled resolution with typed GDScript, every gameplay state lives in plain `RefCounted` objects owned by one `World` model while nodes only render. The vertical slice passes 148 headless automated tests plus live window checks for 144Hz camera pacing, banded night lighting, and zero sub-pixel shimmer.

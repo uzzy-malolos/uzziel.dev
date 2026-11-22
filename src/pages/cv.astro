@@ -113,7 +113,7 @@ const socialLinks = socials.filter((s) => s.url);
     </div>
     <div class="pt-8">
       {projects.map((p, i) => (
-        <div class="grid grid-cols-[2.5rem_1fr] items-baseline gap-4 border-b border-line py-4 first:border-t md:grid-cols-[2.5rem_220px_1fr] md:gap-6">
+        <div class="ledger-row grid grid-cols-[2.5rem_1fr] items-baseline gap-4 border-b border-line py-4 first:border-t md:grid-cols-[2.5rem_220px_1fr] md:gap-6">
           <span class="font-mono text-[11px] text-gold" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
           <h3 class="text-base font-medium leading-snug" style="font-family: 'Inter Tight', sans-serif;">{p.title}</h3>
           <p class="col-span-2 mt-1 text-xs leading-relaxed text-stone md:col-span-1 md:mt-0 md:text-sm">{p.summary}</p>

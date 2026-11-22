@@ -1,26 +1,26 @@
 ---
 const items = [
-  'Astro',
-  'React',
-  'Next.js',
-  'TypeScript',
-  'Flutter',
-  'Godot',
-  'GDScript',
-  'Python',
-  'FastAPI',
+  'Godot 4.6',
+  'Unity 6',
+  'C#',
+  'three.js',
   'Kotlin',
   'Jetpack Compose',
-  'Phaser',
-  'WebRTC',
+  'Expo',
+  'React Native',
+  'Next.js',
+  'Astro',
+  'TypeScript',
+  'Tauri',
+  'Rust',
+  'Blender',
+  'FastAPI',
   'Supabase',
-  'Botpress',
-  'Claude',
-  'Tailwind',
-  'Netlify',
+  'WebRTC',
+  'PostgreSQL',
+  'FFmpeg',
   'Aseprite',
-  'Excel',
-  'Figma',
+  'Tailwind CSS',
 ];
 const doubled = [...items, ...items];
 ---
@@ -29,7 +29,7 @@ const doubled = [...items, ...items];
   <div class="track" aria-hidden="true">
     {doubled.map((label) => (
       <span class="item font-mono text-[11px] uppercase tracking-[0.2em] text-stone">
-        {label}
+        <span class="item-label">{label}</span>
         <span class="px" aria-hidden="true"></span>
       </span>
     ))}
@@ -41,11 +41,12 @@ const doubled = [...items, ...items];
 
 <style>
   .marquee {
-    --fade: 80px;
+    --fade: 88px;
     position: relative;
     overflow: hidden;
-    padding: 1.1rem 0;
+    padding: 1.15rem 0;
     border-bottom: 1px solid var(--border);
+    background: linear-gradient(90deg, transparent, rgb(201 161 74 / 0.045) 50%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent 0, #000 var(--fade), #000 calc(100% - var(--fade)), transparent 100%);
             mask-image: linear-gradient(to right, transparent 0, #000 var(--fade), #000 calc(100% - var(--fade)), transparent 100%);
   }
@@ -53,13 +54,17 @@ const doubled = [...items, ...items];
     display: inline-flex;
     gap: 2.25rem;
     white-space: nowrap;
-    animation: scroll-x 44s linear infinite;
+    animation: scroll-x 48s linear infinite;
     will-change: transform;
   }
   .item {
     display: inline-flex;
     align-items: center;
     gap: 2.25rem;
+    transition: color 220ms ease;
+  }
+  .item-label {
+    transition: color 220ms ease;
   }
   /* Pixel-square separator — the dither motif at word scale. */
   .px {
@@ -67,6 +72,13 @@ const doubled = [...items, ...items];
     height: 5px;
     background: var(--gold);
     flex: none;
+    transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .item:hover .item-label {
+    color: var(--accent);
+  }
+  .item:hover .px {
+    transform: rotate(45deg) scale(1.25);
   }
   .marquee:hover .track {
     animation-play-state: paused;

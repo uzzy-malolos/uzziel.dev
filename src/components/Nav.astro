@@ -12,11 +12,12 @@ const pathname = Astro.url.pathname;
 ---
 
 <header id="site-nav" class="sticky top-0 z-40 border-b border-line bg-cream dark:bg-ink">
+  <div id="site-scroll-bar" aria-hidden="true"></div>
   <div class="container flex min-h-[72px] items-center justify-between gap-6">
-    <a href="/" data-cursor="hover" class="group flex min-h-11 items-center gap-3" aria-label="uzziel.dev home">
-      <span class="font-display text-2xl font-medium tracking-tight">uzziel<span class="text-gold">.</span></span>
+    <a href="/" data-cursor="hover" class="group flex min-h-11 items-center gap-3" aria-label="uzzy.lol home">
+      <span class="font-display text-2xl font-medium tracking-tight transition-colors group-hover:text-accent">uzziel<span class="inline-block text-gold transition-transform duration-300 group-hover:scale-125">.</span></span>
       <span class="hidden border-l border-line-strong pl-3 font-mono text-[9px] uppercase leading-[1.5] tracking-[0.18em] text-stone sm:block">
-        Bay · Laguna<br />14.18°N — 121.28°E
+        Bay · Laguna<br />14.18°N · 121.28°E
       </span>
     </a>
 

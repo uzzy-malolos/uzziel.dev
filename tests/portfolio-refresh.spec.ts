@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 const latest = [
+  'spinroot', 'rimegard', 'cozy-party-steam', 'foodtogo', 'mao-bay', 'think-5', 'through-his-eyes', 'monte-carlo-laguna',
   'the-last-moon', 'jelly-rune-rush', 'what-if-series', 'bible-story-animations', 'night-market',
   'fitpace', 'eco-man', 'comtus-ai', 'unaccounted', 'bookdesk',
 ];
@@ -154,5 +155,29 @@ test('Long Way Around renders updated screenshots on hero and case study', async
   for (const img of await imgs.all()) {
     await img.scrollIntoViewIfNeeded();
     await expect.poll(() => img.evaluate((el) => (el as HTMLImageElement).naturalWidth)).toBe(1152);
+  }
+});
+
+test('latest Nov 2026 projects, Comtus demo video, and motion chrome render cleanly', async ({ page, request }) => {
+  await page.goto('/');
+  await expect(page.locator('#site-scroll-bar')).toBeAttached();
+  await expect(page.locator('.marquee')).toBeVisible();
+  await expect(page.locator('#featured-grid a[href="/work/spinroot"]')).toBeVisible();
+  await expect(page.locator('#featured-grid a[href="/work/rimegard"]')).toBeVisible();
+  await expect(page.locator('#featured-grid a[href="/work/mao-bay"]')).toBeVisible();
+
+  const comtusRes = await page.goto('/work/comtus-ai/');
+  expect(comtusRes?.status()).toBe(200);
+  const comtusVideo = page.locator('article.prose-case video');
+  await expect(comtusVideo).toBeVisible();
+  const comtusSrc = await comtusVideo.locator('source').getAttribute('src');
+  expect(comtusSrc).toBe('/work/project-screenshots/comtus-ai/how-it-works.mp4');
+  expect((await request.head(comtusSrc!)).status()).toBe(200);
+
+  for (const slug of ['spinroot', 'rimegard', 'cozy-party-steam', 'foodtogo', 'mao-bay', 'think-5', 'through-his-eyes', 'monte-carlo-laguna']) {
+    const res = await page.goto(`/work/${slug}/`);
+    expect(res?.status()).toBe(200);
+    await expect(page.locator('#case-cover-img')).toBeVisible();
+    await expect.poll(() => page.locator('#case-cover-img').evaluate((el) => (el as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
   }
 });

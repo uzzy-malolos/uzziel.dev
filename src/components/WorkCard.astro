@@ -18,7 +18,7 @@ interface Props {
 const { slug, title, role, year, status, summary, stack, cover, logo, playStoreUrl, highlight = false, index = 0, aspect = 'wide' } = Astro.props;
 
 const dotClasses: Record<Props['status'], string> = {
-  live: 'bg-[#9ec87f]',
+  live: 'bg-[#9ec87f] text-[#9ec87f] status-dot-live rounded-full',
   completed: 'bg-gold',
   'in-progress': 'bg-gold',
   archived: 'bg-stone',
@@ -58,23 +58,28 @@ const stackLine = visibleStack.join(' · ') + (remainingStack > 0 ? ` +${remaini
         alt={`${title} project cover`}
         width="1600"
         height="1000"
-        loading={index < 3 ? 'eager' : 'lazy'}
+        loading={index < 6 ? 'eager' : 'lazy'}
         decoding="async"
         transition:name={`cover-${slug}`}
-        class={`absolute inset-0 h-full w-full object-cover ${coverPosition} transition-transform duration-500 ease-out motion-safe:group-hover:scale-[1.035]`}
+        class={`absolute inset-0 h-full w-full object-cover ${coverPosition} transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.05]`}
       />
 
-      <span class="absolute left-4 top-4 inline-flex items-center gap-1.5 bg-ink/75 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em] text-cream backdrop-blur-sm">
+      <div
+        class="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-ink/45 via-ink/10 to-transparent opacity-70 transition-opacity duration-300 group-hover:opacity-95"
+        aria-hidden="true"
+      ></div>
+
+      <span class="absolute left-4 top-4 z-10 inline-flex items-center gap-1.5 bg-ink/80 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em] text-cream backdrop-blur-sm">
         <span class={`h-1.5 w-1.5 ${dotClasses[status]}`} aria-hidden="true"></span>
         {statusLabel[status]}
       </span>
 
       {highlight ? (
-        <span class="absolute right-4 top-4 bg-gold px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-ink">
+        <span class="absolute right-4 top-4 z-10 bg-gold px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-ink shadow-sm">
           Highlight
         </span>
       ) : playStoreUrl && (
-        <span class="absolute right-4 top-4 inline-flex items-center gap-1.5 bg-leaf px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-cream">
+        <span class="absolute right-4 top-4 z-10 inline-flex items-center gap-1.5 bg-leaf px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-cream shadow-sm">
           <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M4 2.5v19l16-9.5-16-9.5z" />
           </svg>
@@ -82,12 +87,12 @@ const stackLine = visibleStack.join(' · ') + (remainingStack > 0 ? ` +${remaini
         </span>
       )}
 
-      <span class="absolute bottom-2 right-4 font-display text-3xl text-cream/90 mix-blend-difference" aria-hidden="true">
+      <span class="work-index-num absolute bottom-2 right-4 z-10 font-display text-3xl text-cream/90 mix-blend-difference" aria-hidden="true">
         {String(index + 1).padStart(2, '0')}
       </span>
     </div>
 
-    <div class="relative flex flex-1 flex-col border-b border-line py-5 md:py-6">
+    <div class="relative flex flex-1 flex-col border-b border-line py-5 transition-colors duration-300 group-hover:border-gold/60 md:py-6">
       {/* Without a logo, a spacer matches its net height so titles line up across a row. */}
       {logo ? (
         <img
@@ -119,9 +124,10 @@ const stackLine = visibleStack.join(' · ') + (remainingStack > 0 ? ` +${remaini
         </p>
         <span
           aria-hidden="true"
-          class="inline-flex h-9 w-9 flex-none items-center justify-center border border-line-strong text-sm transition-colors duration-200 group-hover:border-gold group-hover:bg-gold group-hover:text-ink"
+          class="work-arrow-box inline-flex h-9 w-9 flex-none items-center justify-center rounded-[2px] border border-line-strong text-sm group-hover:border-gold group-hover:bg-gold group-hover:text-ink"
         >
-          →
+          <span class="arrow-a">→</span>
+          <span class="arrow-b">→</span>
         </span>
       </div>
       <span class="sr-only">View case study</span>

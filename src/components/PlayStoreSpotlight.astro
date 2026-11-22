@@ -11,8 +11,8 @@ const apps = [
     screenHeight: 1298,
     screenAlt: 'Fitness Pace workouts library and custom session builder on Android.',
     pitch:
-      'Track workouts, runs, daily steps, and macros with your adaptive AI coach PACE, meal photo scanner, and 90-day lifts charts.',
-    highlights: ['Custom & preset workouts', 'Meal & barcode logging', 'PACE adaptive coach'],
+      'Track workouts, runs, daily steps, and macros with your adaptive AI coach PACE, meal photo scanner, and 90-day lift charts.',
+    highlights: ['Custom & preset workouts', 'Meal, label & barcode scan', 'PACE adaptive coach'],
     playStoreUrl: 'https://play.google.com/store/apps/details?id=com.fitpace.app',
     liveUrl: 'https://fitpace-pearl.vercel.app',
   },
@@ -27,8 +27,8 @@ const apps = [
     screenHeight: 1280,
     screenAlt: 'Needs vs. Wants Android home screen showing Today Needs vs Wants split and remaining budget.',
     pitch:
-      'Seal each daily buy as a Need or a Want before logging it, then check where it sits against your daily limit with an on-phone advisor.',
-    highlights: ['One-tap Need or Want seal', 'Offline-first Room ledger', 'On-phone budget advisor'],
+      'Seal each daily buy as a Need or a Want before logging it, track Spending Patterns in the v3 ledger UI, and check daily room with an on-phone advisor.',
+    highlights: ['One-tap Need or Want seal', 'Offline-first Room ledger', 'Spending patterns & advisor'],
     playStoreUrl: 'https://play.google.com/store/apps/details?id=com.needsvswants.app',
     liveUrl: 'https://needs-vs-wants.vercel.app',
   },
@@ -36,16 +36,17 @@ const apps = [
 ---
 
 <section id="google-play" class="container scroll-mt-24 border-t border-line py-20 md:py-28" aria-labelledby="google-play-title">
-  <div class="flex items-baseline justify-between gap-4 border-b border-line pb-5" data-reveal>
+  <div class="ledger-head" data-reveal>
     <h2 id="google-play-title">Published on <em class="text-accent">Google Play.</em></h2>
     <p class="meta-mono hidden shrink-0 sm:block">03 · Google Play</p>
   </div>
 
   <div class="grid gap-6 pt-10 pb-12 md:grid-cols-[1fr_340px] md:items-end md:pb-14">
     <p class="max-w-xl text-lg leading-relaxed text-stone" data-reveal>
-      Two Android products built end to end and live on Google Play today - one for training and nutrition consistency, one for daily spending habits.
+      Two Android products built end to end and live on Google Play today: one for training and nutrition consistency, one for daily spending habits.
     </p>
-    <p class="meta-mono text-leaf md:justify-self-end" data-reveal data-reveal-delay="100">
+    <p class="meta-mono flex items-center gap-2 text-leaf md:justify-self-end" data-reveal data-reveal-delay="100">
+      <span class="status-dot-live inline-block h-1.5 w-1.5 rounded-full bg-leaf text-leaf" aria-hidden="true"></span>
       Available now on Android
     </p>
   </div>
@@ -53,12 +54,12 @@ const apps = [
   <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
     {apps.map((app, i) => (
       <article
-        class="flex h-full flex-col justify-between gap-8 border border-line bg-raised p-6 md:p-8"
+        class="play-card group flex h-full flex-col justify-between gap-8 border border-line bg-raised p-6 md:p-8"
         data-reveal
-        data-reveal-delay={i * 100}
+        data-reveal-delay={i * 110}
       >
-        <div class="flex flex-col gap-6 sm:flex-row sm:items-start">
-          <div class="mx-auto w-[140px] shrink-0 overflow-hidden rounded-[20px] border-4 border-ink bg-ink shadow-md sm:mx-0">
+        <div class="relative z-10 flex flex-col gap-6 sm:flex-row sm:items-start">
+          <div class="play-phone mx-auto w-[140px] shrink-0 overflow-hidden rounded-[20px] border-4 border-ink bg-ink shadow-md sm:mx-0">
             <img
               src={app.screen}
               alt={app.screenAlt}
@@ -79,16 +80,16 @@ const apps = [
                 height="48"
                 loading="lazy"
                 decoding="async"
-                class="app-logo h-12 w-12 shrink-0"
+                class="app-logo h-12 w-12 shrink-0 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:-rotate-3"
               />
               <div class="min-w-0">
                 <div class="flex flex-wrap items-center gap-2">
                   <span class="inline-flex items-center gap-1.5 bg-leaf/15 px-2 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-leaf dark:bg-leaf/25 dark:text-[#b4e095]">
-                    <span class="h-1.5 w-1.5 bg-current" aria-hidden="true"></span>
+                    <span class="status-dot-live h-1.5 w-1.5 rounded-full bg-current" aria-hidden="true"></span>
                     Google Play
                   </span>
                 </div>
-                <h3 class="mt-1.5 text-2xl leading-tight md:text-[1.75rem]">{app.name}</h3>
+                <h3 class="mt-1.5 text-2xl leading-tight transition-colors duration-200 group-hover:text-accent md:text-[1.75rem]">{app.name}</h3>
               </div>
             </div>
 
@@ -106,7 +107,7 @@ const apps = [
           </div>
         </div>
 
-        <div class="flex flex-wrap items-center gap-3 border-t border-line pt-6">
+        <div class="relative z-10 flex flex-wrap items-center gap-3 border-t border-line pt-6">
           <a
             href={app.playStoreUrl}
             target="_blank"

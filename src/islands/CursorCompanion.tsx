@@ -25,11 +25,11 @@ export default function CursorCompanion() {
 
   const x = useMotionValue(-100);
   const y = useMotionValue(-100);
-  // The dot tracks tight; the ring trails behind it.
-  const dotX = useSpring(x, { stiffness: 900, damping: 60, mass: 0.3 });
-  const dotY = useSpring(y, { stiffness: 900, damping: 60, mass: 0.3 });
-  const ringX = useSpring(x, { stiffness: 240, damping: 24, mass: 0.6 });
-  const ringY = useSpring(y, { stiffness: 240, damping: 24, mass: 0.6 });
+  // The dot tracks tight; the ring trails behind it with spring weight.
+  const dotX = useSpring(x, { stiffness: 920, damping: 58, mass: 0.28 });
+  const dotY = useSpring(y, { stiffness: 920, damping: 58, mass: 0.28 });
+  const ringX = useSpring(x, { stiffness: 250, damping: 24, mass: 0.55 });
+  const ringY = useSpring(y, { stiffness: 250, damping: 24, mass: 0.55 });
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -55,24 +55,27 @@ export default function CursorCompanion() {
     const onUp = () => setState((prev) => ({ ...prev, pressed: false }));
     const onLeave = () => setState((prev) => ({ ...prev, hidden: true }));
     const onEnter = () => setState((prev) => ({ ...prev, hidden: false }));
+    const onSwap = () => setState((prev) => ({ ...prev, hovering: false, pressed: false, label: null }));
 
     window.addEventListener('mousemove', onMove);
     window.addEventListener('mousedown', onDown);
     window.addEventListener('mouseup', onUp);
     document.documentElement.addEventListener('mouseleave', onLeave);
     document.documentElement.addEventListener('mouseenter', onEnter);
+    document.addEventListener('astro:after-swap', onSwap);
     return () => {
       window.removeEventListener('mousemove', onMove);
       window.removeEventListener('mousedown', onDown);
       window.removeEventListener('mouseup', onUp);
       document.documentElement.removeEventListener('mouseleave', onLeave);
       document.documentElement.removeEventListener('mouseenter', onEnter);
+      document.removeEventListener('astro:after-swap', onSwap);
     };
   }, [x, y]);
 
   if (!enabled) return null;
 
-  const pressScale = state.pressed ? 0.75 : 1;
+  const pressScale = state.pressed ? 0.78 : 1;
   const showLabel = !!state.label && !state.hidden;
 
   return (
@@ -93,12 +96,12 @@ export default function CursorCompanion() {
           mixBlendMode: 'difference',
         }}
         animate={{
-          width: state.hovering ? 52 : 34,
-          height: state.hovering ? 52 : 34,
-          opacity: state.hidden ? 0 : state.hovering ? 0.9 : 0.5,
+          width: state.hovering ? 54 : 34,
+          height: state.hovering ? 54 : 34,
+          opacity: state.hidden ? 0 : state.hovering ? 0.95 : 0.5,
           scale: pressScale,
         }}
-        transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
       />
       <motion.div
         aria-hidden="true"
@@ -116,12 +119,12 @@ export default function CursorCompanion() {
           mixBlendMode: 'difference',
         }}
         animate={{
-          width: state.hovering ? 5 : 10,
-          height: state.hovering ? 5 : 10,
+          width: state.hovering ? 5 : 9,
+          height: state.hovering ? 5 : 9,
           opacity: state.hidden ? 0 : 1,
           scale: pressScale,
         }}
-        transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
       />
       <motion.div
         aria-hidden="true"
@@ -141,18 +144,23 @@ export default function CursorCompanion() {
           fontWeight: 600,
           letterSpacing: '0.12em',
           textTransform: 'uppercase',
-          padding: '5px 9px',
-          borderRadius: 9999,
+          padding: '5px 10px',
+          borderRadius: 2,
+          boxShadow: '0 10px 24px -8px rgba(26, 20, 16, 0.45)',
           whiteSpace: 'nowrap',
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: 6,
         }}
         animate={{
           opacity: showLabel ? 1 : 0,
-          scale: showLabel ? 1 : 0.6,
+          scale: showLabel ? 1 : 0.72,
           y: showLabel ? 0 : 6,
         }}
         transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
       >
-        {state.label ?? lastLabel.current}
+        <span>{state.label ?? lastLabel.current}</span>
+        <span>↗</span>
       </motion.div>
     </>
   );

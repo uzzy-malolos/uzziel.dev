@@ -2,8 +2,8 @@
 title: "Cozy Party"
 role: "Solo developer"
 year: 2026
-stack: ["JavaScript", "three.js", "WebRTC", "Vercel"]
-summary: "A Pummel Party-style couch and online party game in the browser - 3D island board, 19 minigames, ragdoll kin, 8 players on one keyboard, gamepads, or phones."
+stack: ["JavaScript", "three.js", "Electron", "WebRTC", "Vercel"]
+summary: "A Pummel Party-style couch and online 3D party game for 1 to 8 players: walkable lobby, branching island board, 22 minigames, and Paper & Ink sticker UI on web and Windows."
 cover: "/covers/cozy-party-game.webp"
 liveUrl: "https://cozy-party-indol.vercel.app"
 status: "live"
@@ -11,17 +11,34 @@ order: -25
 featured: true
 ---
 
-Cozy Party is the game you open when friends are ready to play right away: rigged 3D animal kin racing across an island board and competing across 19 minigames, straight from a browser tab. No install, no accounts, and no build step required for players.
+Cozy Party is the game you open when friends are ready to play right away: articulated 3D plush kin racing across an island board and competing across 22 minigames, straight from a browser tab or standalone Windows desktop EXE. No accounts and no friction to start a match.
 
-<figure class="case-figure">
-  <img src="/work/project-screenshots/cozy-party-home.webp" alt="Cozy Party title screen live on Vercel with 3D animal characters, couch play, and online room buttons." />
-  <figcaption>Cozy Party live on Vercel - 1 to 8 players across local keyboard, gamepads, and mobile phone controllers.</figcaption>
+<figure class="case-figure case-wide">
+  <img src="/work/project-screenshots/cozy-party-home.webp" alt="Cozy Party v1.2 title screen with a live 3D clubhouse diorama, plush characters, Paper & Ink die-cut sticker buttons, and career passport." />
+  <figcaption>Live 3D title screen diorama and Paper & Ink die-cut sticker UI overhaul (v1.2.0).</figcaption>
 </figure>
 
-## 3D board, walkable lobby, and 19 minigames
+## 3D board, walkable lobby, and 22 minigames
 
-Originally prototyped across a hybrid 2D canvas and three.js renderer, the game now runs in a unified 3D three.js world with a walkable 3D lobby, rigged Blender animal characters with ragdoll physics, wind-swayed scenery landmarks, host party stakes, and dynamic camera follow.
+The latest visual and physics passes rebuilt character rendering and presentation end to end: physical velvet plush sheen with fuzz shells, glossy eyes and noses, procedural PBR surface maps, 2048px soft shadows, full-body jump and locomotion articulation, and a custom clubhouse prop kit.
 
-The roster spans 19 minigames with fast input coalescing, eased mood animations, and mid-match seat rejoin if someone drops on a spotty connection. Up to 8 players share a single keyboard on couch night, plug in standard controllers, or scan a room code from a phone over WebRTC peer data channels.
+<figure class="case-figure case-wide">
+  <img src="/work/project-screenshots/cozy-party/lobby.webp" alt="Cozy Party walkable 3D party lobby with four customizable plush characters, bot selectors, board maps, and online room controls." />
+  <figcaption>Walkable 3D party lobby supporting 1 to 8 players across shared keyboard, gamepads, bots, and phones.</figcaption>
+</figure>
 
-Play immediately in any browser at [cozy-party-indol.vercel.app](https://cozy-party-indol.vercel.app).
+<figure class="case-figure case-wide">
+  <img src="/work/project-screenshots/cozy-party/board.webp" alt="Cozy Party Emerald Meadow 3D island board turn with four animal kin standing on circular tiles and trophy HUD." />
+  <figcaption>Emerald Meadow 3D board mode with branching paths, item shops, sabotage, and trophy chases.</figcaption>
+</figure>
+
+## Online WebRTC rooms, desktop EXE, and Steam edition
+
+Up to 8 players share a single keyboard on couch night, plug in gamepads, or scan a lobby QR code from a phone over WebRTC peer channels backed by a dedicated Singapore Railway signaling server and Cloudflare TURN relay credentials.
+
+<figure class="case-figure case-wide">
+  <img src="/work/project-screenshots/cozy-party/soccer.webp" alt="Cozy Party Plush Pitch 3D soccer minigame mid-match with flying plush players, soccer ball, and KO indicators." />
+  <figcaption>Plush Pitch and 21 other 3D minigames with fast input coalescing and mid-match seat rejoin.</figcaption>
+</figure>
+
+Play immediately in any browser at [cozy-party-indol.vercel.app](https://cozy-party-indol.vercel.app), or see the companion Unity 6 URP PC build in [Cozy Party: Steam Edition](/work/cozy-party-steam).

@@ -7,7 +7,7 @@ const steps = [
 ];
 const facts = [
   { label: 'Platform', value: 'Android' },
-  { label: 'Languages', value: 'English · Filipino' },
+  { label: 'Languages', value: 'EN · FIL · BE' },
   { label: 'Built with', value: 'Kotlin · Compose · FastAPI' },
 ];
 ---
@@ -20,7 +20,7 @@ const facts = [
     <div class="container relative py-16 md:py-24">
       <div class="flex flex-wrap items-baseline justify-between gap-3 border-b border-[#fdfaf2]/15 pb-4" data-reveal>
         <p class="font-mono text-[10px] font-medium uppercase tracking-[0.16em] text-[#eaa977]">01 · Highlight</p>
-        <p class="font-mono text-[10px] uppercase tracking-[0.16em] text-[#fdfaf2]/50">Android app · In testing</p>
+        <p class="font-mono text-[10px] uppercase tracking-[0.16em] text-[#fdfaf2]/55">Android app · v1.0.14 testing</p>
       </div>
 
       <div class="grid gap-14 pt-12 lg:grid-cols-12 lg:items-center lg:gap-10">
@@ -42,7 +42,7 @@ const facts = [
 
           <ol class="mt-10 border-t border-[#fdfaf2]/15">
             {steps.map((step) => (
-              <li class="grid grid-cols-[2.25rem_1fr] items-baseline gap-x-4 gap-y-1 border-b border-[#fdfaf2]/15 py-4 sm:grid-cols-[2.5rem_5.5rem_1fr]">
+              <li class="eco-step-row grid grid-cols-[2.25rem_1fr] items-baseline gap-x-4 gap-y-1 border-b border-[#fdfaf2]/15 py-4 sm:grid-cols-[2.5rem_5.5rem_1fr]">
                 <span class="font-mono text-[11px] text-[#eaa977]" aria-hidden="true">{step.n}</span>
                 <span class="font-display text-xl">{step.title}</span>
                 <span class="col-start-2 text-sm leading-relaxed text-[#fdfaf2]/70 sm:col-start-auto">{step.text}</span>
@@ -55,8 +55,8 @@ const facts = [
           </a>
         </div>
 
-        <div class="lg:col-span-6" data-reveal data-reveal-delay="120">
-          <div class="eco-stage">
+        <div class="lg:col-span-6" data-reveal="zoom" data-reveal-delay="120">
+          <div class="eco-stage" id="eco-parallax-stage">
             <img class="eco-phone eco-phone-left" src="/work/eco-man/books.webp" alt="Eco-Man Books screen listing dated expenses with amounts and a Needs Info flag" width="540" height="1128" loading="lazy" decoding="async" />
             <img class="eco-phone eco-phone-right" src="/work/eco-man/sheets.webp" alt="Eco-Man Sheets screen showing transactions in rows with a missing payment date warning" width="540" height="1128" loading="lazy" decoding="async" />
             <img class="eco-phone eco-phone-front" src="/work/eco-man/today.webp" alt="Eco-Man Today screen with recorded sales, expenses, and a Scan a receipt button" width="540" height="1128" loading="lazy" decoding="async" />
@@ -76,3 +76,49 @@ const facts = [
   </div>
   <div class="dither-down bg-[#173f2d]" aria-hidden="true"></div>
 </section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  const initEcoMotion = () => {
+    const stage = document.getElementById('eco-parallax-stage');
+    if (!stage || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        '.eco-phone-left',
+        { y: 24 },
+        {
+          y: -14,
+          ease: 'none',
+          scrollTrigger: { trigger: stage, start: 'top bottom', end: 'bottom top', scrub: 0.8 },
+        },
+      );
+      gsap.fromTo(
+        '.eco-phone-right',
+        { y: 34 },
+        {
+          y: -18,
+          ease: 'none',
+          scrollTrigger: { trigger: stage, start: 'top bottom', end: 'bottom top', scrub: 0.8 },
+        },
+      );
+      gsap.fromTo(
+        '.eco-phone-front',
+        { y: 12 },
+        {
+          y: -8,
+          ease: 'none',
+          scrollTrigger: { trigger: stage, start: 'top bottom', end: 'bottom top', scrub: 0.8 },
+        },
+      );
+    }, stage);
+
+    document.addEventListener('astro:before-swap', () => ctx.revert(), { once: true });
+  };
+
+  initEcoMotion();
+  document.addEventListener('astro:page-load', initEcoMotion);
+</script>

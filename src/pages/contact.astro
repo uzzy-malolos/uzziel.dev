@@ -4,7 +4,7 @@ import Magnetic from '../islands/Magnetic.tsx';
 import { socials } from '../lib/socials';
 
 const inputClass =
-  'w-full border-0 border-b border-[color:var(--line-strong)] bg-transparent px-0 py-3 text-base outline-none transition-colors focus:border-[color:var(--accent)]';
+  'w-full border-0 border-b border-[color:var(--line-strong)] bg-transparent px-0 py-3 text-base outline-none transition-colors focus:border-transparent';
 ---
 
 <BaseLayout
@@ -14,7 +14,7 @@ const inputClass =
   <section class="container pb-14 pt-12 md:pt-16">
     <div class="ledger-head" data-reveal>
       <p class="eyebrow">Contact · Open channel</p>
-      <p class="meta-mono hidden sm:block">Replies within 2 business days — GMT+8</p>
+      <p class="meta-mono hidden sm:block">Replies within 2 business days · GMT+8</p>
     </div>
     <h1 data-reveal class="mt-10" style="font-size: clamp(2.8rem, 7.5vw, 6rem); line-height: 0.98;">
       Let's <em class="text-accent">talk.</em>
@@ -40,19 +40,19 @@ const inputClass =
           <label>Don't fill: <input name="bot-field" /></label>
         </p>
 
-        <div data-reveal>
-          <label for="name" class="meta-mono mb-1 block">01 — Name *</label>
+        <div class="field-wrap" data-reveal>
+          <label for="name" class="meta-mono mb-1 block">01 · Name *</label>
           <input id="name" name="name" type="text" required autocomplete="name" class={inputClass} />
         </div>
 
-        <div data-reveal data-reveal-delay="60">
-          <label for="email" class="meta-mono mb-1 block">02 — Email *</label>
+        <div class="field-wrap" data-reveal data-reveal-delay="60">
+          <label for="email" class="meta-mono mb-1 block">02 · Email *</label>
           <input id="email" name="email" type="email" required autocomplete="email" class={inputClass} />
         </div>
 
         <div data-reveal data-reveal-delay="120" class="grid grid-cols-1 gap-8 md:grid-cols-2">
-          <div>
-            <label for="project-type" class="meta-mono mb-1 block">03 — Project type</label>
+          <div class="field-wrap">
+            <label for="project-type" class="meta-mono mb-1 block">03 · Project type</label>
             <select id="project-type" name="project-type" class={`${inputClass} bg-cream dark:bg-ink`}>
               <option value="Data">Data</option>
               <option value="Web">Web</option>
@@ -60,19 +60,19 @@ const inputClass =
               <option value="Other">Other</option>
             </select>
           </div>
-          <div>
-            <label for="budget" class="meta-mono mb-1 block">04 — Budget</label>
+          <div class="field-wrap">
+            <label for="budget" class="meta-mono mb-1 block">04 · Budget</label>
             <select id="budget" name="budget" class={`${inputClass} bg-cream dark:bg-ink`}>
               <option value="Under PHP 10k">Under PHP 10k</option>
-              <option value="PHP 10–30k">PHP 10–30k</option>
-              <option value="PHP 30–60k">PHP 30–60k</option>
+              <option value="PHP 10-30k">PHP 10-30k</option>
+              <option value="PHP 30-60k">PHP 30-60k</option>
               <option value="PHP 60k+">PHP 60k+</option>
             </select>
           </div>
         </div>
 
-        <div data-reveal data-reveal-delay="180">
-          <label for="message" class="meta-mono mb-1 block">05 — Message *</label>
+        <div class="field-wrap" data-reveal data-reveal-delay="180">
+          <label for="message" class="meta-mono mb-1 block">05 · Message *</label>
           <textarea id="message" name="message" required rows="6" class={`${inputClass} resize-y`}></textarea>
         </div>
 
@@ -90,12 +90,12 @@ const inputClass =
     <aside id="thank-you-panel" class="hidden" aria-live="polite">
       <div class="border-t-2 border-leaf bg-surface p-7">
         <p class="meta-mono flex items-center gap-2">
-          <span class="inline-block h-1.5 w-1.5 bg-leaf" aria-hidden="true"></span>
+          <span class="status-dot-live inline-block h-1.5 w-1.5 rounded-full bg-leaf text-leaf" aria-hidden="true"></span>
           Message received
         </p>
-        <h2 class="mt-4 text-2xl">Thanks — it's in the ledger.</h2>
+        <h2 class="mt-4 text-2xl">Thanks, it's in the ledger.</h2>
         <p class="mt-3 text-sm leading-relaxed text-stone">
-          I'll get back to you within 2 business days. While you wait, see <a href="/work/tirador" class="link-line text-accent">TIRADOR →</a>
+          I'll get back to you within 2 business days. While you wait, see <a href="/work/spinroot" class="link-line text-accent">Spinroot →</a>
         </p>
       </div>
     </aside>
@@ -108,7 +108,7 @@ const inputClass =
         </div>
         <div class="border-b border-line py-5" data-reveal data-reveal-delay="80">
           <dt class="meta-mono">Location</dt>
-          <dd class="mt-2 text-sm leading-relaxed">Bay, Laguna, Philippines — 14.18°N, 121.28°E.</dd>
+          <dd class="mt-2 text-sm leading-relaxed">Bay, Laguna, Philippines · 14.18°N, 121.28°E.</dd>
         </div>
         <div class="border-b border-line py-5" data-reveal data-reveal-delay="120">
           <dt class="meta-mono">Message delivery</dt>

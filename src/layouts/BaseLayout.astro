@@ -135,31 +135,83 @@ const ogImage = new URL(image, Astro.site ?? 'https://uzzy.lol').toString();
         lenis = undefined;
       });
 
-      // Header chrome: translucent + shadow once the page scrolls.
-      const syncNav = () => {
+      // Header chrome + brass scroll-progress hairline, updated via rAF throttle.
+      let scrollRaf = 0;
+      const syncScrollChrome = () => {
+        scrollRaf = 0;
+        const y = window.scrollY;
         const nav = document.getElementById('site-nav');
-        if (nav) nav.dataset.scrolled = window.scrollY > 12 ? 'true' : 'false';
+        if (nav) nav.dataset.scrolled = y > 12 ? 'true' : 'false';
+        const bar = document.getElementById('site-scroll-bar');
+        if (bar && !motionPreference.matches) {
+          const max = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+          const ratio = Math.min(Math.max(y / max, 0), 1);
+          bar.style.transform = `scaleX(${ratio})`;
+        }
       };
-      window.addEventListener('scroll', syncNav, { passive: true });
+      const queueScrollSync = () => {
+        if (!scrollRaf) scrollRaf = window.requestAnimationFrame(syncScrollChrome);
+      };
+      window.addEventListener('scroll', queueScrollSync, { passive: true });
+      window.addEventListener('resize', queueScrollSync, { passive: true });
 
-      // Gold spotlight follows the pointer across work cards (CSS reads --mx/--my).
+      // Delegated pointer spotlight & subtle 3D cover micro-tilt for work and
+      // Google Play cards (CSS reads --mx/--my/--rx/--ry; zero React overhead).
+      const fineHover = window.matchMedia('(hover: hover) and (pointer: fine)');
+      let activeCover: HTMLElement | null = null;
+      const resetCoverTilt = (cover: HTMLElement | null) => {
+        if (!cover) return;
+        cover.style.setProperty('--rx', '0deg');
+        cover.style.setProperty('--ry', '0deg');
+      };
+
       document.addEventListener('pointermove', (e) => {
         const target = e.target;
-        if (!(target instanceof Element) || motionPreference.matches || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
-        const card = target.closest<HTMLElement>('[data-work-card] .work-cover');
-        if (!card) return;
-        const r = card.getBoundingClientRect();
-        card.style.setProperty('--mx', `${e.clientX - r.left}px`);
-        card.style.setProperty('--my', `${e.clientY - r.top}px`);
+        if (!(target instanceof Element) || motionPreference.matches || !fineHover.matches) return;
+
+        const workCard = target.closest<HTMLElement>('[data-work-card]');
+        const cover = workCard?.querySelector<HTMLElement>('.work-cover') ?? null;
+        if (activeCover && activeCover !== cover) {
+          resetCoverTilt(activeCover);
+          activeCover = null;
+        }
+        if (cover) {
+          activeCover = cover;
+          const r = cover.getBoundingClientRect();
+          const lx = e.clientX - r.left;
+          const ly = e.clientY - r.top;
+          const px = Math.min(Math.max(lx / Math.max(r.width, 1), 0), 1);
+          const py = Math.min(Math.max(ly / Math.max(r.height, 1), 0), 1);
+          const rx = ((0.5 - py) * 6.5).toFixed(2);
+          const ry = ((px - 0.5) * 6.5).toFixed(2);
+          cover.style.setProperty('--mx', `${lx}px`);
+          cover.style.setProperty('--my', `${ly}px`);
+          cover.style.setProperty('--rx', `${rx}deg`);
+          cover.style.setProperty('--ry', `${ry}deg`);
+        }
+
+        const playCard = target.closest<HTMLElement>('.play-card');
+        if (playCard) {
+          const r = playCard.getBoundingClientRect();
+          playCard.style.setProperty('--mx', `${e.clientX - r.left}px`);
+          playCard.style.setProperty('--my', `${e.clientY - r.top}px`);
+        }
+      });
+
+      document.addEventListener('pointerleave', () => {
+        resetCoverTilt(activeCover);
+        activeCover = null;
       });
 
       // Fire on initial load and re-run after every Astro view transition.
       const initPage = () => {
         if (!lenis) syncMotion();
         else lenis.resize();
+        resetCoverTilt(activeCover);
+        activeCover = null;
         initRevealOnScroll();
         initMagnetic();
-        syncNav();
+        syncScrollChrome();
       };
       initPage();
       document.addEventListener('astro:page-load', initPage);

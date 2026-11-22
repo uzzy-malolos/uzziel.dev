@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { Sun, Moon } from 'lucide-react';
 
 type Theme = 'light' | 'dark';
@@ -61,9 +62,20 @@ export default function ThemeToggle() {
       onClick={toggle}
       data-cursor="hover"
       aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-      className="inline-flex items-center justify-center w-10 h-10 rounded-[2px] border border-line-strong hover:border-gold transition-colors"
+      className="group inline-flex h-10 w-10 items-center justify-center rounded-[2px] border border-line-strong transition-all duration-200 hover:border-gold hover:bg-gold/10 active:scale-95"
     >
-      {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
+      <AnimatePresence mode="wait" initial={false}>
+        <motion.span
+          key={theme}
+          initial={reducedMotion ? false : { opacity: 0, rotate: -45, scale: 0.65 }}
+          animate={{ opacity: 1, rotate: 0, scale: 1 }}
+          exit={reducedMotion ? undefined : { opacity: 0, rotate: 45, scale: 0.65 }}
+          transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          className="inline-flex items-center justify-center text-ink transition-colors group-hover:text-accent dark:text-cream"
+        >
+          {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
+        </motion.span>
+      </AnimatePresence>
     </button>
   );
 }

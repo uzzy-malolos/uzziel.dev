@@ -1,0 +1,30 @@
+---
+title: "Through His Eyes (Bible Shorts)"
+role: "Director · video editor · Python"
+year: 2026
+stack: ["Python", "FFmpeg", "Video Editing", "Audio Mixing"]
+summary: "A vertical 9:16 cinematic biblical short-film series assembled through scripted Python and FFmpeg edit pipelines with 3-track narration, dialogue, and score mixes."
+cover: "/covers/through-his-eyes.webp"
+status: "in-progress"
+order: -21
+featured: false
+---
+
+Through His Eyes is a vertical (`1080x1920`, 24fps) cinematic short-film series telling New Testament healing accounts from a tight, off-axis third-person perspective. Three finished episodes lead the series: *The Blind Man Healed*, *12 Years of Sickness*, and *The Touch of Faith*.
+
+<figure class="case-figure case-phones">
+  <div>
+    <img src="/work/project-screenshots/through-his-eyes/blind-man.webp" alt="Vertical film still from The Blind Man Healed." />
+    <img src="/work/project-screenshots/through-his-eyes/touch-of-faith.webp" alt="Vertical film still from Through His Eyes: The Touch of Faith." />
+    <img src="/work/project-screenshots/through-his-eyes/twelve-years.webp" alt="Vertical film still from 12 Years of Sickness." />
+  </div>
+  <figcaption>Frames from the three completed vertical films: The Blind Man Healed, The Touch of Faith, and 12 Years of Sickness.</figcaption>
+</figure>
+
+## Code-driven editorial assembly and sound design
+
+Rather than manually dragging dozens of clips on a timeline for every revision, each episode compiles from a versioned Python and FFmpeg edit script (`build_edit.py`) paired with timed `.srt` subtitles and a strict three-track audio blueprint:
+
+- **Narrator voice-over** placed cleanly inside open beats so narration never collides with on-screen character lines.
+- **Synced character dialogue and crowd ambience** that duck dynamically under speech, including low-pass silence drops at dramatic turning points.
+- **Continuous original instrumental score** mixed underneath narration and swelling during quiet visual beats, graded with a consistent warm 35mm film palette across clips.

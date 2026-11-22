@@ -3,33 +3,44 @@ title: "Comtus AI"
 role: "Product designer · Full-stack developer"
 year: 2026
 stack: ["React", "TypeScript", "Vite", "Tailwind CSS", "Motion", "Tauri"]
-summary: "A source-based study workspace that turns documents into connected notes, conversations, flashcards, quizzes, and study guides."
+summary: "A free, local-first study workspace on web, Windows, and macOS that turns PDFs and notes into cited answers, flashcards, quizzes, and exam plans."
 cover: "/covers/comtus-ai.webp"
 logo: "/logos/comtus-ai.webp"
+liveUrl: "https://www.comtus-ai.xyz"
 status: "live"
 order: -28
 featured: true
 ---
 
-Comtus AI is a study workspace built around the material a person brings to it. Sources, conversation, and practice sit together in a notebook, so the path from reading a document to testing what you remember stays visible.
+Comtus AI turns your PDFs, documents, and notes into a study partner that keeps every notebook on your device. Ask anything and it answers from your own material with the exact page it came from, turns missed quiz items into flashcards, and maps out a review schedule before exam day.
 
-I designed and built the React and TypeScript application, its document tools, and the surrounding product website. The interface borrows from a working study desk: paper, ink, a brass accent, generous reading type, and clear divisions between work areas. The visual language gives long reading sessions room to breathe while keeping the next useful action close.
+<figure class="case-figure">
+  <video
+    controls
+    playsinline
+    preload="metadata"
+    poster="/work/project-screenshots/comtus-ai/how-it-works-poster.webp"
+    width="1920"
+    height="1080"
+  >
+    <source src="/work/project-screenshots/comtus-ai/how-it-works.mp4" type="video/mp4" />
+  </video>
+  <figcaption>How Comtus works in 35 seconds: drop in study files, get page-cited answers, turn misses into flashcards, and plan the week.</figcaption>
+</figure>
+
+I designed and built the React and TypeScript application, its Tauri desktop wrapper (Windows `.exe` and macOS `.dmg` with signed auto-updates via `comtus-releases`), and the surrounding product site. The interface borrows from a working study desk: warm paper, dark ink, a brass accent, generous reading type, and resizable keyboard-operable panes.
 
 ## From material to practice
 
-A notebook can hold source documents, notes, and saved study work. Users choose which sources to include in a conversation, ask questions, and generate flashcards, quizzes, summaries, or guides. Source search preserves those inclusion choices. Saved work stays easy to find and revisit.
+A notebook holds source documents, notes, timelines, and saved study work together. Users pick which sources enter a conversation, ask cited questions, and generate flashcards, quizzes, summaries, or guides while mathematical notation and coordinate graphs carry cleanly into exported files.
 
 <figure class="case-figure">
   <img src="/work/project-screenshots/comtus-workspace.webp" alt="Comtus AI study workspace with source document citations and thermodynamics study cards." />
-  <figcaption>Comtus AI workspace - dual-column study chat with direct citation references and auto-generated drill tools.</figcaption>
+  <figcaption>Comtus AI workspace: dual-column study chat with direct page citations and generated recall drills.</figcaption>
 </figure>
 
-Mathematical notation carries through questions, choices, worked answers, and review. Supported coordinate graphs include exact data tables. Export tools preserve rendered notation so a study artifact remains useful outside the browser.
+An optional companion pane called Compad shares the exact conversation and draft state as the full pane, so switching between compact reading and deep study never breaks flow.
 
-The workspace includes an optional notebook companion, Compad. Its compact chat shares the same conversation and draft as the full pane. Moving between the two views should feel like changing the size of a tool, rather than starting the task again.
+## Shipped on web and desktop
 
-## A desk that adapts
-
-Sources and study tools use resizable, keyboard-operable panes. Narrow screens keep the reader and composer usable. Theme, reading size, reduced motion, dialog focus, and recovery after deleting saved work are part of the same product experience.
-
-[Comtus AI is available on the web](https://www.comtus-ai.xyz). A Tauri desktop client is also part of the codebase. The latest local design work refines the notebook catalogue, source reader, and practice hierarchy; that work has its own release step. The public product continues to center one simple progression: gather material, connect ideas, then recall them.
+[Comtus AI is live on the web](https://www.comtus-ai.xyz) with zero account wall, alongside the v0.3.9 desktop installers for Windows and macOS. Theme switching, reading size controls, reduced motion, dialog focus management, and recovery after deleting saved work all ship as part of the core experience.

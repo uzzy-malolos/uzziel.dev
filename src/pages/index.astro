@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../islands/Hero.tsx';
+import Marquee from '../components/Marquee.astro';
 import AboutTeaser from '../components/AboutTeaser.astro';
 import EcoManSpotlight from '../components/EcoManSpotlight.astro';
 import WorkGrid from '../components/WorkGrid.astro';
@@ -17,8 +18,17 @@ const sampleSlugs = new Set([
   'ai-youtube-thumbnail-design-portfolio',
 ]);
 const projects = all.filter((entry) => !sampleSlugs.has(entry.slug));
-// Eco-Man has its own highlight band, so the grid shows the next six.
-const selectedSlugs = new Set(['fitpace', 'needs-vs-wants', 'the-last-moon', 'comtus-ai', 'cozy-party-game', 'shirtko']);
+// Eco-Man has its own highlight band and Fitness Pace + Needs vs. Wants sit in
+// the Google Play spotlight, so Selected Work highlights the freshest six across
+// games, desktop/web AI workspaces, and civic systems.
+const selectedSlugs = new Set([
+  'spinroot',
+  'the-last-moon',
+  'rimegard',
+  'cozy-party-game',
+  'comtus-ai',
+  'mao-bay',
+]);
 const featured = projects
   .filter((e) => selectedSlugs.has(e.slug))
   .sort((a, b) => a.data.order - b.data.order)
@@ -31,11 +41,13 @@ const featured = projects
 >
   <Hero client:load projectCount={projects.length} />
 
+  <Marquee />
+
   <EcoManSpotlight />
 
   <!-- 02 · Selected work -->
   <section id="selected-work" class="container scroll-mt-24 py-20 md:py-28" aria-labelledby="selected-work-title">
-    <div class="flex items-baseline justify-between gap-4 border-b border-line pb-5" data-reveal>
+    <div class="ledger-head" data-reveal>
       <h2 id="selected-work-title">A few things <em class="text-accent">I’ve put into the world.</em></h2>
       <p class="meta-mono hidden shrink-0 sm:block">02 · Selected work</p>
     </div>

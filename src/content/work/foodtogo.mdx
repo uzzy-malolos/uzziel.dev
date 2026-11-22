@@ -1,0 +1,25 @@
+---
+title: "FoodToGo"
+role: "Product designer · Full-stack architect"
+year: 2026
+stack: ["NestJS", "Expo", "React Native", "Next.js", "Supabase", "BullMQ"]
+summary: "A Philippine neighborhood food-delivery platform monorepo linking consumer ordering, merchant controls, rider dispatch with COD limits, and operations tooling."
+cover: "/covers/foodtogo.webp"
+logo: "/logos/foodtogo.webp"
+status: "in-progress"
+order: -29
+featured: false
+---
+
+FoodToGo is a Philippine-market multi-restaurant food ordering and delivery platform built as one TypeScript monorepo across four coordinated surfaces: a consumer and restaurant-owner mobile app (`ph.foodtogo.app`), a dedicated rider app (`ph.foodtogo.rider`), a Next.js operations console, and a NestJS 11 API paired with a BullMQ background worker and Supabase PostgreSQL.
+
+<figure class="case-figure">
+  <img src="/work/project-screenshots/foodtogo/brand-system.webp" alt="FoodToGo Brand Kit v2 showing deep forest green, warm cream surfaces, golden accents, and mobile ordering preview." />
+  <figcaption>Brand Kit v2 direction uniting consumer ordering, merchant operations, and rider tooling.</figcaption>
+</figure>
+
+## Closing the order loop end to end
+
+A single Expo React Native codebase packages both store binaries through `APP_VARIANT` so consumer ordering stays free of background GPS prompts while the rider build handles active-delivery location tracking, sequential 45-second assignment offers, 4-character pickup verification codes, and 4-digit customer delivery OTPs.
+
+On the backend, a server-enforced three-axis state machine (`order_status`, `delivery_status`, `payment_status`) governs every transition through transactional outbox events, atomic PostgreSQL RPCs, and Row-Level Security across public tables. Cash on Delivery runs as a first-class workflow with automatic rider cash-block limits until remittance clears, alongside Philippine digital payment adapters and Senior Citizen / PWD discount support.

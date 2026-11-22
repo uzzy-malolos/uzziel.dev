@@ -17,10 +17,68 @@ const CHIPS: { key: FilterKey; label: string }[] = [
 ];
 
 const STACK_MATCH: Record<Exclude<FilterKey, 'all' | 'active' | 'shipped'>, string[]> = {
-  app: ['kotlin', 'jetpack compose', 'android', 'expo', 'react native', 'flutter', 'electron', 'tauri', 'capacitor'],
-  game: ['godot', 'gdscript', 'aseprite', 'mobile game', 'phaser', 'three.js', 'roblox', 'luau'],
-  web: ['html', 'css', 'netlify', 'astro', 'react', 'next.js', 'tailwind', 'tailwind css', 'wordpress', 'vite', 'pwa'],
-  ai: ['agent systems', 'llm routing', 'botpress', 'claude', 'chatgpt', 'fastapi', 'groq', 'anthropic api', 'grok api', 'openai', 'whisper', 'tesseract', 'hivemind'],
+  app: [
+    'kotlin',
+    'jetpack compose',
+    'android',
+    'expo',
+    'react native',
+    'flutter',
+    'electron',
+    'tauri',
+    'capacitor',
+    'local multiplayer',
+  ],
+  game: [
+    'godot',
+    'gdscript',
+    'aseprite',
+    'mobile game',
+    'phaser',
+    'three.js',
+    'roblox',
+    'luau',
+    'unity',
+    'c#',
+    'urp',
+    'blender',
+    '3d rpg',
+    'steam',
+    'pixel art',
+  ],
+  web: [
+    'html',
+    'css',
+    'netlify',
+    'astro',
+    'react',
+    'next.js',
+    'tailwind',
+    'tailwind css',
+    'wordpress',
+    'vite',
+    'pwa',
+    'editorial web',
+    'turf.js',
+  ],
+  ai: [
+    'agent systems',
+    'llm routing',
+    'botpress',
+    'claude',
+    'chatgpt',
+    'fastapi',
+    'groq',
+    'anthropic api',
+    'grok api',
+    'openai',
+    'whisper',
+    'tesseract',
+    'hivemind',
+    'bullmq',
+    'nestjs',
+    'ffmpeg',
+  ],
 };
 
 function matches(key: FilterKey, stack: string[], status: string): boolean {
@@ -69,10 +127,20 @@ export default function WorkFilter({ gridId = 'work-grid', projects }: { gridId?
       if (show && wasHidden) {
         card.classList.add('in');
         if (!reduced && typeof card.animate === 'function') {
-          animations.push(card.animate(
-            [{ opacity: 0, transform: 'translateY(14px)' }, { opacity: 1, transform: 'translateY(0)' }],
-            { duration: 320, delay: Math.min(revealIndex * 28, 140), easing: 'cubic-bezier(0.22, 1, 0.36, 1)', fill: 'backwards' },
-          ));
+          animations.push(
+            card.animate(
+              [
+                { opacity: 0, transform: 'translateY(14px) scale(0.985)' },
+                { opacity: 1, transform: 'translateY(0) scale(1)' },
+              ],
+              {
+                duration: 340,
+                delay: Math.min(revealIndex * 26, 140),
+                easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+                fill: 'backwards',
+              },
+            ),
+          );
           revealIndex += 1;
         }
       }
@@ -101,16 +169,28 @@ export default function WorkFilter({ gridId = 'work-grid', projects }: { gridId?
               aria-controls={gridId}
               aria-label={`${chip.label}: ${chip.count} ${chip.count === 1 ? 'project' : 'projects'}`}
               className={
-                'min-h-11 rounded-[2px] border px-4 py-2 font-mono text-[11px] font-medium uppercase tracking-[0.13em] transition-colors ' +
+                'relative isolate min-h-11 rounded-[2px] border px-4 py-2 font-mono text-[11px] font-medium uppercase tracking-[0.13em] transition-colors ' +
                 (isActive
-                  ? 'border-ink bg-ink text-cream dark:border-gold dark:bg-gold dark:text-ink'
+                  ? 'border-ink text-cream dark:border-gold dark:text-ink'
                   : 'border-line-strong text-stone hover:border-narra hover:text-narra dark:hover:border-gold dark:hover:text-gold')
               }
               whileTap={reduced ? undefined : { scale: 0.97 }}
               transition={{ duration: motionTokens.duration.fast, ease: motionTokens.easing.sharp }}
             >
-              {chip.label}
-              <span className={isActive ? 'ml-2 text-[9px] text-cream/70 dark:text-ink/70' : 'ml-2 text-[9px] opacity-70'}>
+              {isActive && (
+                <motion.span
+                  layoutId={reduced ? undefined : 'work-filter-active-pill'}
+                  aria-hidden="true"
+                  className="absolute inset-0 -z-10 rounded-[1px] bg-ink dark:bg-gold"
+                  transition={
+                    reduced
+                      ? { duration: 0 }
+                      : { type: 'spring', stiffness: 420, damping: 32, mass: 0.7 }
+                  }
+                />
+              )}
+              <span>{chip.label}</span>
+              <span className={isActive ? 'ml-2 text-[9px] text-cream/75 dark:text-ink/75' : 'ml-2 text-[9px] opacity-70'}>
                 {chip.count}
               </span>
             </motion.button>
