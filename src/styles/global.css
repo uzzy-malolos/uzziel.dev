@@ -1111,10 +1111,26 @@
 }
 .hero-artifact-game { left: 1%; top: 31%; width: 87%; z-index: 2; }
 .hero-artifact-web { right: 1%; top: 8%; width: 69%; z-index: 1; }
-/* Phone-shaped slot for the highlighted app; overflow stays visible for the logo badge. */
+/* Phone-shaped slot for the highlighted app; outer overflow stays visible for
+   the logo badge while .hero-app-screen clips the screen zoom and sheen inside. */
 .hero-artifact-app { right: 1%; top: 22%; width: 25%; z-index: 3; overflow: visible; padding: 5px; background: #0d2419; border-radius: 22px; }
-.hero-artifact-app::after { border-radius: inherit; }
-.hero-artifact-app > img:first-child { border-radius: 17px; }
+.hero-artifact-app::after { content: none; }
+.hero-app-screen {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 17px;
+  isolation: isolate;
+}
+.hero-app-screen::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 34%, rgb(255 248 228 / 0.22) 50%, transparent 66%);
+  content: '';
+  transform: translateX(-120%);
+  transition: transform 720ms cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
 .hero-app-badge { position: absolute; left: -20px; top: -20px; width: 52px; height: 52px; }
 .artifact-chrome { display: flex; align-items: center; gap: 1rem; padding: 0.65rem 0.8rem; font-size: 0.62rem; line-height: 1.2; }
 .artifact-chrome i { display: block; height: 5px; width: 5px; border-radius: 50%; background: #c9a14a; }
@@ -1145,7 +1161,8 @@
       0 32px 64px -16px rgb(26 20 16 / 0.44),
       0 0 0 1px rgb(201 161 74 / 0.45);
   }
-  .hero-artifact:hover::after { transform: translateX(120%); }
+  .hero-artifact:hover::after,
+  .hero-artifact-app:hover .hero-app-screen::after { transform: translateX(120%); }
   .hero-artifact:hover img:not(.hero-app-badge) { transform: scale(1.035); }
   .hero-artifact-app:hover .hero-app-badge { transform: translateY(-4px) rotate(-6deg) scale(1.06); }
 }
@@ -1159,7 +1176,7 @@
   .hero-artifact-game { top: 32%; }
   .hero-artifact-web { top: 10%; }
   .hero-artifact-app { top: 24%; width: 27%; padding: 3px; border-radius: 14px; }
-  .hero-artifact-app > img:first-child { border-radius: 11px; }
+  .hero-app-screen { border-radius: 11px; }
   .hero-app-badge { left: -12px; top: -12px; width: 36px; height: 36px; }
   .hero-stage-note { font-size: 1rem; }
   .hero-stage-caption { font-size: 0.9rem; bottom: -1rem; }

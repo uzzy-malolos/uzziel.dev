@@ -51,16 +51,18 @@ const doubled = [...items, ...items];
             mask-image: linear-gradient(to right, transparent 0, #000 var(--fade), #000 calc(100% - var(--fade)), transparent 100%);
   }
   .track {
-    display: inline-flex;
-    gap: 2.25rem;
+    display: flex;
+    width: max-content;
     white-space: nowrap;
     animation: scroll-x 48s linear infinite;
     will-change: transform;
   }
   .item {
     display: inline-flex;
+    flex: none;
     align-items: center;
     gap: 2.25rem;
+    padding-right: 2.25rem;
     transition: color 220ms ease;
   }
   .item-label {
@@ -80,12 +82,9 @@ const doubled = [...items, ...items];
   .item:hover .px {
     transform: rotate(45deg) scale(1.25);
   }
-  .marquee:hover .track {
-    animation-play-state: paused;
-  }
   @keyframes scroll-x {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
+    from { transform: translate3d(0, 0, 0); }
+    to   { transform: translate3d(-50%, 0, 0); }
   }
   @media (prefers-reduced-motion: reduce) {
     .track { animation: none; }

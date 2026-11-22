@@ -189,13 +189,15 @@ export default function Hero({ projectCount }: HeroProps) {
               transition={{ duration: 0.65, delay: 0.3, ease: EASE }}
               data-cursor-label="Explore Eco-Man"
             >
-              <img
-                src="/work/eco-man/today.webp"
-                alt="Eco-Man, an Android record book, showing this month’s sales, expenses, and a Scan a receipt button"
-                width="540"
-                height="1128"
-                className="block w-full"
-              />
+              <span className="hero-app-screen">
+                <img
+                  src="/work/eco-man/today.webp"
+                  alt="Eco-Man, an Android record book, showing this month’s sales, expenses, and a Scan a receipt button"
+                  width="540"
+                  height="1128"
+                  className="block w-full"
+                />
+              </span>
               <img
                 src="/logos/eco-man.webp"
                 alt=""
