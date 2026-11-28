@@ -15,59 +15,63 @@ from docx.shared import Inches, Pt, RGBColor
 ROOT = Path(__file__).resolve().parents[1]
 TS_SOURCE = ROOT / "src" / "lib" / "resume-content.ts"
 OUT_PORTFOLIO = ROOT / "public" / "downloads" / "uzziel-malolos-resume.docx"
+# Optional local copy on the author's Windows machine; skip if the folder is absent.
 OUT_DOWNLOADS = Path(r"C:\Users\uzzie\Downloads") / "Malolos Resume.docx"
 OUT_TXT = ROOT / "public" / "downloads" / "uzziel-malolos-resume.txt"
+OUT_PDF = ROOT / "public" / "downloads" / "uzziel-malolos-resume.pdf"
+
+
+STR = r"(?:'((?:\\'|[^'])*)'|\"((?:\\\"|[^\"])*)\")"
+
+
+def _unquote(single: str | None, double: str | None) -> str:
+    raw = single if single not in (None, "") else (double or "")
+    return raw.replace("\\'", "'").replace('\\"', '"')
+
+
+def _strings(block: str) -> list[str]:
+    return [_unquote(m.group(1), m.group(2)) for m in re.finditer(STR, block)]
 
 
 def parse_ts_object(source: str, key: str) -> str:
-    match = re.search(rf"{key}:\s*'((?:\\'|[^'])*)'", source)
-    if not match:
-        match = re.search(rf'{key}:\s*"([^"]*)"', source)
+    match = re.search(rf"{key}:\s*{STR}", source)
     if not match:
         raise ValueError(f"Missing key: {key}")
-    return match.group(1).replace("\\'", "'")
+    return _unquote(match.group(1), match.group(2))
 
 
 def parse_string_array_block(source: str, key: str) -> list[str]:
-    block = re.search(rf"{key}:\s*\[(.*?)\],", source, re.S)
+    block = re.search(rf"{key}:\s*\[(.*?)\]", source, re.S)
     if not block:
         return []
-    return [m.group(1).replace("\\'", "'") for m in re.finditer(r"'((?:\\'|[^'])*)'", block.group(1))]
+    return _strings(block.group(1))
 
 
 def parse_skills(source: str) -> list[dict]:
     skills: list[dict] = []
     for group_match in re.finditer(
-        r"group:\s*'((?:\\'|[^'])*)',\s*items:\s*\[(.*?)\]",
+        rf"group:\s*{STR},\s*items:\s*\[(.*?)\]",
         source,
         re.S,
     ):
-        group = group_match.group(1).replace("\\'", "'")
-        items = [
-            m.group(1).replace("\\'", "'")
-            for m in re.finditer(r"'((?:\\'|[^'])*)'", group_match.group(2))
-        ]
-        skills.append({"group": group, "items": items})
+        group = _unquote(group_match.group(1), group_match.group(2))
+        skills.append({"group": group, "items": _strings(group_match.group(3))})
     return skills
 
 
 def parse_experience(source: str) -> list[dict]:
     entries: list[dict] = []
     for block in re.finditer(
-        r"role:\s*'((?:\\'|[^'])*)'.*?org:\s*'((?:\\'|[^'])*)'.*?period:\s*'((?:\\'|[^'])*)'.*?bullets:\s*\[(.*?)\]",
+        rf"role:\s*{STR}.*?org:\s*{STR}.*?period:\s*{STR}.*?bullets:\s*\[(.*?)\]",
         source,
         re.S,
     ):
-        bullets = [
-            m.group(1).replace("\\'", "'")
-            for m in re.finditer(r"'((?:\\'|[^'])*)'", block.group(4))
-        ]
         entries.append(
             {
-                "role": block.group(1).replace("\\'", "'"),
-                "org": block.group(2).replace("\\'", "'"),
-                "period": block.group(3).replace("\\'", "'"),
-                "bullets": bullets,
+                "role": _unquote(block.group(1), block.group(2)),
+                "org": _unquote(block.group(3), block.group(4)),
+                "period": _unquote(block.group(5), block.group(6)),
+                "bullets": _strings(block.group(7)),
             }
         )
     return entries
@@ -76,14 +80,15 @@ def parse_experience(source: str) -> list[dict]:
 def parse_projects(source: str) -> list[dict]:
     projects: list[dict] = []
     for block in re.finditer(
-        r"title:\s*'((?:\\'|[^'])*)',\s*summary:\s*'((?:\\'|[^'])*)'",
+        rf"title:\s*{STR},\s*status:\s*{STR},\s*summary:\s*{STR}",
         source,
         re.S,
     ):
         projects.append(
             {
-                "title": block.group(1).replace("\\'", "'"),
-                "summary": block.group(2).replace("\\'", "'"),
+                "title": _unquote(block.group(1), block.group(2)),
+                "status": _unquote(block.group(3), block.group(4)),
+                "summary": _unquote(block.group(5), block.group(6)),
             }
         )
     return projects
@@ -92,16 +97,16 @@ def parse_projects(source: str) -> list[dict]:
 def parse_education(source: str) -> list[dict]:
     entries: list[dict] = []
     for block in re.finditer(
-        r"degree:\s*'((?:\\'|[^'])*)'.*?school:\s*'((?:\\'|[^'])*)'.*?year:\s*'((?:\\'|[^'])*)'.*?note:\s*'((?:\\'|[^'])*)'",
+        rf"degree:\s*{STR}.*?school:\s*{STR}.*?year:\s*{STR}.*?note:\s*{STR}",
         source,
         re.S,
     ):
         entries.append(
             {
-                "degree": block.group(1).replace("\\'", "'"),
-                "school": block.group(2).replace("\\'", "'"),
-                "year": block.group(3).replace("\\'", "'"),
-                "note": block.group(4).replace("\\'", "'"),
+                "degree": _unquote(block.group(1), block.group(2)),
+                "school": _unquote(block.group(3), block.group(4)),
+                "year": _unquote(block.group(5), block.group(6)),
+                "note": _unquote(block.group(7), block.group(8)),
             }
         )
     return entries
@@ -208,30 +213,31 @@ def build_docx(data: dict) -> Document:
             add_contact_text(links, " | ")
         add_hyperlink(links, url.rstrip("/").split("/")[-1], url)
 
-    add_heading(doc, "Professional Summary")
+    add_heading(doc, "Summary")
     add_body(doc, data["summary"])
 
-    add_heading(doc, "Core Skills")
+    add_heading(doc, "Skills")
     for skill in data["skills"]:
         add_body(doc, f"{skill['group']}: {', '.join(skill['items'])}")
 
-    add_heading(doc, "Relevant Experience")
+    add_heading(doc, "Experience")
     for job in data["experience"]:
         add_body(doc, f"{job['org']}")
         add_body(doc, f"{job['role']}  |  {job['period']}")
         for bullet in job["bullets"]:
             add_body(doc, bullet, bullet=True)
 
-    add_heading(doc, "Selected Projects (2026)")
+    add_heading(doc, "Projects")
     for project in data["projects"]:
-        add_body(doc, f"{project['title']} — {project['summary']}")
+        status = f" ({project['status']})" if project.get("status") else ""
+        add_body(doc, f"{project['title']}{status} — {project['summary']}")
 
     add_heading(doc, "Education")
     for edu in data["education"]:
         add_body(doc, f"{edu['school']}  |  {edu['year']}")
         add_body(doc, f"{edu['degree']}  |  {edu['note']}")
 
-    add_heading(doc, "Awards & Achievements")
+    add_heading(doc, "Awards")
     for award in data["awards"]:
         add_body(doc, award, bullet=True)
 
@@ -248,24 +254,24 @@ def build_txt(data: dict) -> str:
         f"{short_url(data['website'])} • LinkedIn: {short_url(data['linkedin'])}",
         f"GitHub: {' | '.join(short_url(url) for url in data['github'])}",
         "",
-        "PROFESSIONAL SUMMARY",
+        "SUMMARY",
         "",
         data["summary"],
         "",
-        "CORE SKILLS",
+        "SKILLS",
         "",
     ]
     for skill in data["skills"]:
         lines.append(f"{skill['group']}: {', '.join(skill['items'])}")
-    lines.extend(["", "RELEVANT EXPERIENCE", ""])
+    lines.extend(["", "EXPERIENCE", ""])
     for job in data["experience"]:
         lines.extend([job["org"], f"{job['role']} | {job['period']}"])
         for bullet in job["bullets"]:
             lines.append(f"- {bullet}")
         lines.append("")
-    lines.extend(["SELECTED PROJECTS (2026)", ""])
+    lines.extend(["PROJECTS", ""])
     for project in data["projects"]:
-        lines.append(f"{project['title']} — {project['summary']}")
+        lines.append(f"{project['title']} ({project['status']}) — {project['summary']}" if project.get("status") else f"{project['title']} — {project['summary']}")
     lines.extend(["", "EDUCATION", ""])
     for edu in data["education"]:
         lines.extend(
@@ -275,7 +281,7 @@ def build_txt(data: dict) -> str:
                 "",
             ]
         )
-    lines.extend(["AWARDS & ACHIEVEMENTS", ""])
+    lines.extend(["AWARDS", ""])
     for award in data["awards"]:
         lines.append(f"- {award}")
     lines.append("")
@@ -288,9 +294,17 @@ def main() -> None:
     OUT_PORTFOLIO.parent.mkdir(parents=True, exist_ok=True)
     doc = build_docx(data)
     doc.save(OUT_PORTFOLIO)
-    doc.save(OUT_DOWNLOADS)
+    saved_local = None
+    if OUT_DOWNLOADS.parent.exists():
+        doc.save(OUT_DOWNLOADS)
+        saved_local = str(OUT_DOWNLOADS)
     OUT_TXT.write_text(build_txt(data), encoding="utf-8")
-    print(json.dumps({"docx": str(OUT_PORTFOLIO), "downloads": str(OUT_DOWNLOADS), "txt": str(OUT_TXT)}, indent=2))
+    print(json.dumps({"docx": str(OUT_PORTFOLIO), "downloads": saved_local, "txt": str(OUT_TXT)}, indent=2))
+    # Count check so a regression cannot silently drop jobs or schools again.
+    assert len(data["experience"]) >= 4, data["experience"]
+    assert len(data["education"]) >= 2, data["education"]
+    assert any("Dean" in a for a in data["awards"]), data["awards"]
+    assert any(p["title"].startswith("TIRADOR") or "Worship Center" in p["title"] for p in data["projects"])
 
 
 if __name__ == "__main__":

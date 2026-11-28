@@ -52,6 +52,10 @@ const socialLinks = socials.filter((s) => s.url);
           Download DOCX
           <span aria-hidden="true">↓</span>
         </a>
+        <a href="/downloads/uzziel-malolos-resume.pdf" download data-cursor="hover" class="button-secondary">
+          Download PDF
+          <span aria-hidden="true">↓</span>
+        </a>
         <a href="/contact" data-cursor="hover" class="button-primary">
           Contact me
           <span aria-hidden="true">→</span>
@@ -115,7 +119,12 @@ const socialLinks = socials.filter((s) => s.url);
       {projects.map((p, i) => (
         <div class="ledger-row grid grid-cols-[2.5rem_1fr] items-baseline gap-4 border-b border-line py-4 first:border-t md:grid-cols-[2.5rem_220px_1fr] md:gap-6">
           <span class="font-mono text-[11px] text-gold" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
-          <h3 class="text-base font-medium leading-snug" style="font-family: 'Inter Tight', sans-serif;">{p.title}</h3>
+          <h3 class="text-base font-medium leading-snug" style="font-family: 'Inter Tight', sans-serif;">
+            {p.title}
+            {p.status && (
+              <span class="mt-1 block font-mono text-[10px] uppercase tracking-[0.12em] text-gold">{p.status}</span>
+            )}
+          </h3>
           <p class="col-span-2 mt-1 text-xs leading-relaxed text-stone md:col-span-1 md:mt-0 md:text-sm">{p.summary}</p>
         </div>
       ))}
@@ -159,13 +168,19 @@ const socialLinks = socials.filter((s) => s.url);
           <p class="meta-mono text-gold">Downloadable copy</p>
           <p class="mt-3 font-display text-3xl leading-tight text-cream">Prefer a file for the pile?</p>
           <p class="mt-3 max-w-md text-sm leading-relaxed text-cream/70">
-            Grab the Word version for applications, or email me for a tailored PDF.
+            Grab the Word or PDF version for applications, or email me for a tailored copy.
           </p>
         </div>
-        <a href="/downloads/uzziel-malolos-resume.docx" download data-cursor="hover" data-magnetic class="button-primary flex-none">
-          Download resume
-          <span aria-hidden="true">↓</span>
-        </a>
+        <div class="flex flex-none flex-wrap gap-3">
+          <a href="/downloads/uzziel-malolos-resume.docx" download data-cursor="hover" data-magnetic class="button-primary">
+            Download DOCX
+            <span aria-hidden="true">↓</span>
+          </a>
+          <a href="/downloads/uzziel-malolos-resume.pdf" download data-cursor="hover" data-magnetic class="button-secondary">
+            Download PDF
+            <span aria-hidden="true">↓</span>
+          </a>
+        </div>
       </div>
     </div>
 

@@ -1,73 +1,95 @@
 Emmanuel Uzziel A. Malolos
 
 Full-Stack Creator | Mobile, Web & Game Developer | Levi Co. Co-founder
-+63 991 387 3723 • uzzymalolos@gmail.com • Bay, Laguna, Philippines (Remote-Ready)
++63 991 387 3723 • uzzielmalolos@levi-co.online • Bay, Laguna, Philippines (Remote-Ready)
 uzzy.lol • LinkedIn: linkedin.com/in/emmanuel-uzziel-malolos-25574831a
-GitHub: github.com/yuzuruu29 | github.com/uzzy-malolos
+GitHub: github.com/yuzuruu29 | github.com/uzzy-dev
 
-PROFESSIONAL SUMMARY
+SUMMARY
 
-Full-stack creator and Levi Co. co-founder from Bay, Laguna, with 5+ years in digital content production, social media management, and video editing. Ships Android apps (Kotlin, Jetpack Compose), cross-platform mobile apps (Expo, React Native, Capacitor), local-first desktop tools (Tauri, Electron), and web products (React, Next.js, Astro). Builds indie games in Godot 4.6, Unity 6 URP, Roblox Studio, and three.js, produces scripted animation and short-film pipelines in Python and FFmpeg, and uses AI tools and agent systems to speed up development and content work.
+Full-stack creator and Levi Co. co-founder from Bay, Laguna, with 5+ years in digital content production, social media management, and video editing. Ships Android apps (Kotlin, Jetpack Compose), including titles live on Google Play, cross-platform mobile apps (Expo, React Native, Capacitor), local-first desktop tools (Tauri, Electron), and web products (React, Next.js, Astro). Builds indie games in Godot 4.6, Unity 6 URP, Roblox Studio, and three.js, produces scripted animation and short-film pipelines in Python and FFmpeg, and uses AI coding agents and multi-agent workflows to speed up development and content work.
 
-CORE SKILLS
+SKILLS
 
 Mobile: Kotlin, Jetpack Compose, Room, Expo, React Native, Capacitor, Flutter, Riverpod, SQLite
 Web Development: TypeScript, JavaScript, React 18, Next.js, Astro, Vite, Tailwind CSS, three.js, Canvas 2D, WebSocket, WebRTC, Turf.js, HTML/CSS
 Desktop & Backend: Tauri, Rust, Electron, FastAPI, Python, Fastify, NestJS, PostgreSQL, Supabase, Colyseus
 Game Development: Godot 4.6, GDScript, Unity 6, C#, URP, Shaders, Roblox Studio, Luau, Phaser 3, Blender, Aseprite, 2D Pixel Art
-AI & Automation: Claude, ChatGPT, Botpress, Groq, OpenRouter API, LLM routing, Agent systems, BullMQ, Prompt engineering
+AI & Automation: Claude, ChatGPT, Botpress, Groq, OpenRouter API, LLM routing, AI coding agents, Multi-agent workflows, Agent systems, BullMQ, Prompt engineering
 Paid Social & Marketing Ops: Meta Ads Manager, Campaign naming, Creative logs, Kill-rule tracking, Google Sheets reporting, YouTube Studio
 Content Creation & Video: Video editing, Code-driven animation (three.js, Canvas), FFmpeg, Canva, CapCut, Adobe Premiere Pro, Filmora, Short-form content, Subtitling (Whisper)
 Tools & Workflow: Git, GitHub, Vercel, Netlify, Playwright, Vitest, WordPress, Google Workspace, Notion, SOP creation, Checklist-based QA
 Data & Reporting: Excel, Google Sheets, Data cleanup, Dashboard reporting, CSV workflows
 
-RELEVANT EXPERIENCE
+EXPERIENCE
 
 Levi Co. · Philippines
 Co-founder / Product Developer | 2026 – Present
 - Co-founded an independent product team with Philip James Lizardo and Aaron Christian Panergayo that builds websites, apps, business software, games, and automations.
+- Designed and built Needs vs. Wants, an Android spending trainer live on Google Play (com.needsvswants.app) that lets users seal each purchase as a Need or a Want, review spending patterns, and check an on-phone budget advisor (Kotlin, Jetpack Compose, Room, Supabase).
+- Designed and built Fitness Pace, a workout, macro-logging, and PACE coaching companion live on Google Play (com.fitpace.app) and web (Expo, Fastify, PostgreSQL).
 - Designed and built Comtus AI, a free local-first study workspace live on web, Windows, and macOS (v0.3.9) that turns PDFs and notes into cited answers, flashcards, quizzes, and exam plans (React, TypeScript, Tauri).
-- Designed and built Fitness Pace, a workout, macro-logging, and PACE coaching companion live on Google Play and web (Expo, Fastify, PostgreSQL).
+
+The Lord's Worship Center · Bay, Laguna
+Freelance Video Editor / Digital Media Consultant | Jan 2019 – Present
+- Edit videos for online services, outreach programs, and social media distribution.
+- Built and maintain the church website (v2 redesign) with sermon library, prayer form, and feeding program gallery.
+- Developed a Shorts + Reels Pipeline (Python, ffmpeg, Whisper) turning sermon recordings into 60-second clips with burned-in subtitles.
+- Organize visual assets and maintain file naming conventions for YouTube publishing.
+- Operate independently across revisions, feedback cycles, and publishing schedules.
 
 RiMiZu Dimsum · Bay, Laguna
-Freelance Video Editor / Digital Media Consultant | May 2020 – Oct 2022
+Social Media Manager / Digital Media Manager | May 2020 – Oct 2022
 - Managed social media content across Facebook and Instagram for a local food business.
 - Created posts, promotional visuals, and short-form videos for product launches and campaigns.
 - Monitored page analytics and adjusted content strategy based on engagement data.
 - Coordinated brand messaging, posting calendars, and digital asset organization.
 
-SELECTED PROJECTS (2026)
+Oka's Farm · Bay, Laguna
+Farm Accountant | Mar 2023 – May 2024
+- Kept full-cycle books: payables tracking, payroll reconciliation, monthly closings.
+- Built a QuickBooks-shaped Excel ledger system accessible to the owner at the kitchen table.
+- Designed a vale (cash advance) tracking system that reduced payroll disputes.
 
-Eco-Man — Android business record book (v1.0.14) for reviewed receipts, sales, expenses, and statements, with private originals, portable backups, multilingual support (EN/FIL/BE), and explicit sharing. Kotlin, Jetpack Compose, Room, FastAPI, PostgreSQL.
-Spinroot — Cozy Hi-Bit pixel farm above a dark underground delve, linked by a 3x3 Wishing Reel shrine that summons Mole, Bee, and Newt helpers. 148 passing headless tests and 100k-spin economy sims. Godot 4.6, GDScript, Aseprite.
-Rimegard — PC-first 3D frozen-industrial RPG approaching Steam release: survive -70C wastes around the Titan Boilers with click-to-move combat, job changes, and Body Heat survival. Godot 4.6, GDScript, Blender.
-The Last Moon — Philippine mythology survivors-like roguelite across five islands with four heroes, 19 Moon Shrine blessings, and a 3D lore preview. TypeScript, Canvas 2D, Three.js, Capacitor. Live on itch.io, Android, Desktop, and Web.
-Cozy Party (Web, Desktop & Steam) — Couch and online 3D party game (v1.2.0 live on Vercel and Electron EXE with 22 minigames and WebRTC rooms) plus a companion Unity 6 URP PC/Steam edition with 14-shell volumetric plush fur and active-ragdoll physics.
-Comtus AI — Free, local-first study workspace live on web, Windows, and macOS (v0.3.9) turning PDFs and notes into page-cited answers, flashcards, quizzes, and exam plans. React, TypeScript, Vite, Tailwind CSS, Tauri.
-Fitness Pace — Live on Google Play (com.fitpace.app). Fitness companion linking workout history, 90-day lifts charts, meal/barcode/label scanning, and adaptive PACE coaching. Expo, React Native, Fastify, PostgreSQL.
-Needs vs. Wants — Live on Google Play (com.needsvswants.app, v2.0.56). Android spending trainer with v3 ledger UI, Spending Patterns tab, one-tap Need/Want seals, and an on-phone budget advisor. Kotlin, Jetpack Compose, Room, Supabase.
-FoodToGo — Philippine neighborhood food-delivery monorepo uniting consumer ordering, restaurant controls, dedicated rider app with COD limits, and operations console. NestJS, Expo, Next.js, BullMQ, Supabase.
-MAO Bay: Field & Office — Role-scoped municipal agriculture and fisheries monitoring demo with transactional SQLite, WGS84 boundary mapping (Turf.js), GeoJSON/KML/KMZ exports, and immutable period snapshots. Next.js, TypeScript, Supabase.
-Think 5 — Offline-first Android speed-trivia game in Kotlin and Jetpack Compose with local alias validation, 5 Streak mode, Filipino support, and local Party Mode.
-ShirtKo — Apparel storefront for a Calauan, Laguna print shop on web and mobile. GCash and COD checkout, with an admin that verifies payments in one click. Next.js, Expo, Supabase. Live.
-Bookdesk — Local-first bookkeeping desktop app with transaction ingestion, categorization, duplicate review, approval checks, and a durable audit trail. Tauri, Rust, React, SQLite, FastAPI.
-Project Nero — Isometric cyberpunk multiplayer RPG with a three.js world, server-authoritative combat, persistent quests, and original characters. TypeScript, React, Colyseus, PostgreSQL, Blender.
-Jelly Rune Rush — Portrait arcade game: read each jelly's color code, cast it on four elemental pads, and hold the Prism Core through five waves and a boss. Godot 4.6, GDScript, shaders, Android.
-Night Market — Co-op Roblox game: cook and serve at a Filipino night market after closing, while something watches from the alleys. Roblox Studio, Luau, Blender.
-Unaccounted — Philippine-rooted social-deduction game: players build a public project, investigate missing money, and decide whom to trust. Roblox Studio, Luau, Blender.
-Through His Eyes & Bible Story Animations — Vertical 9:16 biblical short films and storybook animations produced through scripted Python, Canvas, and FFmpeg editorial pipelines with 3-track narration, dialogue, and original score mixes.
-HIVE — Verified agentic coding runtime with a CLI, terminal UI, and Windows desktop companion built around guarded execution. TypeScript, Electron, Playwright.
-ShopMart — Security hardening and release acceptance for a multi-seller marketplace monorepo: 30 of 31 Supabase Advisor findings closed. NestJS, Next.js, Expo, Supabase, Stripe.
-TIRADOR: Barangay Survivors — Filipino-themed top-down pixel roguelite in Godot 4. Slingshot combat in a barangay TileMap, weapon upgrade tree, enemy spawner. Playable arena foundation shipped.
+PROJECTS
+
+Needs vs. Wants (Live on Google Play) — Android spending trainer (com.needsvswants.app, v2.0.56) with a v3 ledger UI, Spending Patterns tab, one-tap Need/Want seals, and an on-phone budget advisor. Kotlin, Jetpack Compose, Room, Supabase.
+Fitness Pace (Live on Google Play) — Fitness companion (com.fitpace.app) linking workout history, 90-day lifts charts, meal/barcode/label scanning, and adaptive PACE coaching. Expo, React Native, Fastify, PostgreSQL.
+The Last Moon (Live) — Philippine mythology survivors-like roguelite across five islands with four heroes, 19 Moon Shrine blessings, and a 3D lore preview. TypeScript, Canvas 2D, Three.js, Capacitor. Live on itch.io, Android, Desktop, and Web.
+Comtus AI (Live) — Free, local-first study workspace live on web, Windows, and macOS (v0.3.9) turning PDFs and notes into page-cited answers, flashcards, quizzes, and exam plans. React, TypeScript, Vite, Tailwind CSS, Tauri.
+Eco-Man (In tester builds) — Android business record book (v1.0.14) for reviewed receipts, sales, expenses, and statements, with private originals, portable backups, multilingual support (EN/FIL/BE), and explicit sharing. Kotlin, Jetpack Compose, Room, FastAPI, PostgreSQL.
+Long Way Around (In progress) — Solo 2D pixel RPG in Godot 4.6 with a complete four-act story, three endings, and an itch.io ship gate. Godot 4.6, GDScript, Aseprite.
+Jelly Rune Rush (In development) — Portrait Android arcade game: read each jelly's color code, cast it on four elemental pads, and hold the Prism Core through five waves and a boss. Godot 4.6, GDScript, shaders, Android.
+Project Nero (In progress, private) — Solo isometric cyberpunk multiplayer RPG with a three.js world, server-authoritative combat, persistent quests, and original characters. TypeScript, React, Colyseus, PostgreSQL, Blender.
+Spinroot (In progress) — Cozy Hi-Bit pixel farm above a dark underground delve, linked by a 3x3 Wishing Reel shrine that summons Mole, Bee, and Newt helpers. 148 passing headless tests and 100k-spin economy sims. Godot 4.6, GDScript, Aseprite.
+Rimegard (In progress) — PC-first 3D frozen-industrial RPG approaching Steam release: survive -70C wastes around the Titan Boilers with click-to-move combat, job changes, and Body Heat survival. Godot 4.6, GDScript, Blender.
+Cozy Party (Web, Desktop & Steam) (Live; Steam edition in progress) — Couch and online 3D party game (v1.2.0 live on Vercel and Electron EXE with 22 minigames and WebRTC rooms) plus a companion Unity 6 URP PC/Steam edition with 14-shell volumetric plush fur and active-ragdoll physics.
+FoodToGo (In progress) — Philippine neighborhood food-delivery monorepo uniting consumer ordering, restaurant controls, a dedicated rider app with COD limits, and an operations console. NestJS, Expo, Next.js, BullMQ, Supabase.
+MAO Bay: Field & Office (In progress) — Role-scoped municipal agriculture and fisheries monitoring demo with transactional SQLite, WGS84 boundary mapping (Turf.js), GeoJSON/KML/KMZ exports, and immutable period snapshots. Next.js, TypeScript, Supabase.
+Think 5 (Completed) — Offline-first Android speed-trivia game in Kotlin and Jetpack Compose with local alias validation, 5 Streak mode, Filipino support, and local Party Mode.
+ShirtKo (Live) — Apparel storefront for a Calauan, Laguna print shop on web and mobile. GCash and COD checkout, with an admin that verifies payments in one click. Next.js, Expo, Supabase.
+Bookdesk (In progress) — Local-first bookkeeping desktop app with transaction ingestion, categorization, duplicate review, approval checks, and a durable audit trail. Tauri, Rust, React, SQLite, FastAPI.
+Night Market (In progress) — Co-op Roblox game: cook and serve at a Filipino night market after closing, while something watches from the alleys. Roblox Studio, Luau, Blender.
+Unaccounted (In progress) — Philippine-rooted social-deduction game: players build a public project, investigate missing money, and decide whom to trust. Roblox Studio, Luau, Blender.
+Through His Eyes & Bible Story Animations (In progress) — Vertical 9:16 biblical short films and storybook animations produced through scripted Python, Canvas, and FFmpeg editorial pipelines with 3-track narration, dialogue, and original score mixes, for the Scripture Brought to Life YouTube channel.
+Life with Sophia (Live) — Editorial web publication of finds and micro-stories with MDX stories and clear affiliate disclosure, plus an openly AI-generated Facebook Page for Shopee affiliate content.
+HIVE (In progress) — Verified agentic coding runtime with a CLI, terminal UI, and Windows desktop companion built around guarded execution. TypeScript, Electron, Playwright.
+ShopMart (In progress) — Security hardening and release acceptance for a multi-seller marketplace monorepo: 30 of 31 Supabase Advisor findings closed. NestJS, Next.js, Expo, Supabase, Stripe.
+The Lord's Worship Center (v2) (Live) — Church website redesign: 10-section single-page site with sermon library, prayer request form, feeding program gallery, and a Give section with GCash/PayPal. Warm cream-and-wood design system.
+TIRADOR: Barangay Survivors (Paused) — Filipino-themed top-down pixel roguelite in Godot 4. Slingshot combat in a barangay TileMap, weapon upgrade tree, enemy spawner. Playable arena foundation shipped; development is currently paused.
 
 EDUCATION
 
 University of the Philippines Los Baños | 2022 – 2027
 BS Agricultural and Applied Economics | Major in Natural Resource Economics · University Scholar
 
-AWARDS & ACHIEVEMENTS
+Batangas State University | 2021 – 2022
+BS Chemical Engineering | Dean's Lister · Transferred to UPLB
+
+AWARDS
 
 - 1st Place, Video Making and Editing · International Conference on Cooperatives (ICOOP 2022)
 - University Scholar · University of the Philippines Los Baños (2022–Present)
+- Dean's Lister · Batangas State University (2021–2022)
 
 Portfolio and references: uzzy.lol
