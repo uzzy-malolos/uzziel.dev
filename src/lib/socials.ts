@@ -29,9 +29,9 @@ export const socials: SocialLink[] = [
     icon: GITHUB_ICON,
   },
   {
-    platform: 'GitHub · uzzy-malolos',
-    url: 'https://github.com/uzzy-malolos',
-    label: 'GitHub (uzzy-malolos)',
+    platform: 'GitHub · uzzy-dev',
+    url: 'https://github.com/uzzy-dev',
+    label: 'GitHub (uzzy-dev)',
     icon: GITHUB_ICON,
   },
   {

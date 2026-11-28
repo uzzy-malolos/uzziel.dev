@@ -2,13 +2,13 @@ export const resumeData = {
   name: 'Emmanuel Uzziel A. Malolos',
   tagline: 'Full-Stack Creator | Mobile, Web & Game Developer | Levi Co. Co-founder',
   phone: '+63 991 387 3723',
-  email: 'uzzymalolos@gmail.com',
+  email: 'uzzielmalolos@levi-co.online',
   location: 'Bay, Laguna, Philippines (Remote-Ready)',
   linkedin: 'https://www.linkedin.com/in/emmanuel-uzziel-malolos-25574831a/',
-  github: ['https://github.com/yuzuruu29', 'https://github.com/uzzy-malolos'],
+  github: ['https://github.com/yuzuruu29', 'https://github.com/uzzy-dev'],
   website: 'https://uzzy.lol',
   summary:
-    'Full-stack creator and Levi Co. co-founder from Bay, Laguna, with 5+ years in digital content production, social media management, and video editing. Ships Android apps (Kotlin, Jetpack Compose), cross-platform mobile apps (Expo, React Native, Capacitor), local-first desktop tools (Tauri, Electron), and web products (React, Next.js, Astro). Builds indie games in Godot 4.6, Unity 6 URP, Roblox Studio, and three.js, produces scripted animation and short-film pipelines in Python and FFmpeg, and uses AI tools and agent systems to speed up development and content work.',
+    'Full-stack creator and Levi Co. co-founder from Bay, Laguna, with 5+ years in digital content production, social media management, and video editing. Ships Android apps (Kotlin, Jetpack Compose), including titles live on Google Play, cross-platform mobile apps (Expo, React Native, Capacitor), local-first desktop tools (Tauri, Electron), and web products (React, Next.js, Astro). Builds indie games in Godot 4.6, Unity 6 URP, Roblox Studio, and three.js, produces scripted animation and short-film pipelines in Python and FFmpeg, and uses AI coding agents and multi-agent workflows to speed up development and content work.',
 
   skills: [
     {
@@ -29,7 +29,7 @@ export const resumeData = {
     },
     {
       group: 'AI & Automation',
-      items: ['Claude', 'ChatGPT', 'Botpress', 'Groq', 'OpenRouter API', 'LLM routing', 'Agent systems', 'BullMQ', 'Prompt engineering'],
+      items: ['Claude', 'ChatGPT', 'Botpress', 'Groq', 'OpenRouter API', 'LLM routing', 'AI coding agents', 'Multi-agent workflows', 'Agent systems', 'BullMQ', 'Prompt engineering'],
     },
     {
       group: 'Paid Social & Marketing Ops',
@@ -56,8 +56,9 @@ export const resumeData = {
       period: '2026 – Present',
       bullets: [
         'Co-founded an independent product team with Philip James Lizardo and Aaron Christian Panergayo that builds websites, apps, business software, games, and automations.',
+        'Designed and built Needs vs. Wants, an Android spending trainer live on Google Play (com.needsvswants.app) that lets users seal each purchase as a Need or a Want, review spending patterns, and check an on-phone budget advisor (Kotlin, Jetpack Compose, Room, Supabase).',
+        'Designed and built Fitness Pace, a workout, macro-logging, and PACE coaching companion live on Google Play (com.fitpace.app) and web (Expo, Fastify, PostgreSQL).',
         'Designed and built Comtus AI, a free local-first study workspace live on web, Windows, and macOS (v0.3.9) that turns PDFs and notes into cited answers, flashcards, quizzes, and exam plans (React, TypeScript, Tauri).',
-        'Designed and built Fitness Pace, a workout, macro-logging, and PACE coaching companion live on Google Play and web (Expo, Fastify, PostgreSQL).',
       ],
     },
     {
@@ -97,92 +98,124 @@ export const resumeData = {
 
   projects: [
     {
+      title: 'Needs vs. Wants',
+      status: 'Live on Google Play',
+      summary: 'Android spending trainer (com.needsvswants.app, v2.0.56) with a v3 ledger UI, Spending Patterns tab, one-tap Need/Want seals, and an on-phone budget advisor. Kotlin, Jetpack Compose, Room, Supabase.',
+    },
+    {
+      title: 'Fitness Pace',
+      status: 'Live on Google Play',
+      summary: 'Fitness companion (com.fitpace.app) linking workout history, 90-day lifts charts, meal/barcode/label scanning, and adaptive PACE coaching. Expo, React Native, Fastify, PostgreSQL.',
+    },
+    {
+      title: 'The Last Moon',
+      status: 'Live',
+      summary: 'Philippine mythology survivors-like roguelite across five islands with four heroes, 19 Moon Shrine blessings, and a 3D lore preview. TypeScript, Canvas 2D, Three.js, Capacitor. Live on itch.io, Android, Desktop, and Web.',
+    },
+    {
+      title: 'Comtus AI',
+      status: 'Live',
+      summary: 'Free, local-first study workspace live on web, Windows, and macOS (v0.3.9) turning PDFs and notes into page-cited answers, flashcards, quizzes, and exam plans. React, TypeScript, Vite, Tailwind CSS, Tauri.',
+    },
+    {
       title: 'Eco-Man',
+      status: 'In tester builds',
       summary: 'Android business record book (v1.0.14) for reviewed receipts, sales, expenses, and statements, with private originals, portable backups, multilingual support (EN/FIL/BE), and explicit sharing. Kotlin, Jetpack Compose, Room, FastAPI, PostgreSQL.',
     },
     {
+      title: 'Long Way Around',
+      status: 'In progress',
+      summary: 'Solo 2D pixel RPG in Godot 4.6 with a complete four-act story, three endings, and an itch.io ship gate. Godot 4.6, GDScript, Aseprite.',
+    },
+    {
+      title: 'Jelly Rune Rush',
+      status: 'In development',
+      summary: 'Portrait Android arcade game: read each jelly\'s color code, cast it on four elemental pads, and hold the Prism Core through five waves and a boss. Godot 4.6, GDScript, shaders, Android.',
+    },
+    {
+      title: 'Project Nero',
+      status: 'In progress, private',
+      summary: 'Solo isometric cyberpunk multiplayer RPG with a three.js world, server-authoritative combat, persistent quests, and original characters. TypeScript, React, Colyseus, PostgreSQL, Blender.',
+    },
+    {
       title: 'Spinroot',
+      status: 'In progress',
       summary: 'Cozy Hi-Bit pixel farm above a dark underground delve, linked by a 3x3 Wishing Reel shrine that summons Mole, Bee, and Newt helpers. 148 passing headless tests and 100k-spin economy sims. Godot 4.6, GDScript, Aseprite.',
     },
     {
       title: 'Rimegard',
+      status: 'In progress',
       summary: 'PC-first 3D frozen-industrial RPG approaching Steam release: survive -70C wastes around the Titan Boilers with click-to-move combat, job changes, and Body Heat survival. Godot 4.6, GDScript, Blender.',
     },
     {
-      title: 'The Last Moon',
-      summary: 'Philippine mythology survivors-like roguelite across five islands with four heroes, 19 Moon Shrine blessings, and a 3D lore preview. TypeScript, Canvas 2D, Three.js, Capacitor. Live on itch.io, Android, Desktop, and Web.',
-    },
-    {
       title: 'Cozy Party (Web, Desktop & Steam)',
+      status: 'Live; Steam edition in progress',
       summary: 'Couch and online 3D party game (v1.2.0 live on Vercel and Electron EXE with 22 minigames and WebRTC rooms) plus a companion Unity 6 URP PC/Steam edition with 14-shell volumetric plush fur and active-ragdoll physics.',
     },
     {
-      title: 'Comtus AI',
-      summary: 'Free, local-first study workspace live on web, Windows, and macOS (v0.3.9) turning PDFs and notes into page-cited answers, flashcards, quizzes, and exam plans. React, TypeScript, Vite, Tailwind CSS, Tauri.',
-    },
-    {
-      title: 'Fitness Pace',
-      summary: 'Live on Google Play (com.fitpace.app). Fitness companion linking workout history, 90-day lifts charts, meal/barcode/label scanning, and adaptive PACE coaching. Expo, React Native, Fastify, PostgreSQL.',
-    },
-    {
-      title: 'Needs vs. Wants',
-      summary: 'Live on Google Play (com.needsvswants.app, v2.0.56). Android spending trainer with v3 ledger UI, Spending Patterns tab, one-tap Need/Want seals, and an on-phone budget advisor. Kotlin, Jetpack Compose, Room, Supabase.',
-    },
-    {
       title: 'FoodToGo',
-      summary: 'Philippine neighborhood food-delivery monorepo uniting consumer ordering, restaurant controls, dedicated rider app with COD limits, and operations console. NestJS, Expo, Next.js, BullMQ, Supabase.',
+      status: 'In progress',
+      summary: 'Philippine neighborhood food-delivery monorepo uniting consumer ordering, restaurant controls, a dedicated rider app with COD limits, and an operations console. NestJS, Expo, Next.js, BullMQ, Supabase.',
     },
     {
       title: 'MAO Bay: Field & Office',
+      status: 'In progress',
       summary: 'Role-scoped municipal agriculture and fisheries monitoring demo with transactional SQLite, WGS84 boundary mapping (Turf.js), GeoJSON/KML/KMZ exports, and immutable period snapshots. Next.js, TypeScript, Supabase.',
     },
     {
       title: 'Think 5',
+      status: 'Completed',
       summary: 'Offline-first Android speed-trivia game in Kotlin and Jetpack Compose with local alias validation, 5 Streak mode, Filipino support, and local Party Mode.',
     },
     {
       title: 'ShirtKo',
-      summary: 'Apparel storefront for a Calauan, Laguna print shop on web and mobile. GCash and COD checkout, with an admin that verifies payments in one click. Next.js, Expo, Supabase. Live.',
+      status: 'Live',
+      summary: 'Apparel storefront for a Calauan, Laguna print shop on web and mobile. GCash and COD checkout, with an admin that verifies payments in one click. Next.js, Expo, Supabase.',
     },
     {
       title: 'Bookdesk',
+      status: 'In progress',
       summary: 'Local-first bookkeeping desktop app with transaction ingestion, categorization, duplicate review, approval checks, and a durable audit trail. Tauri, Rust, React, SQLite, FastAPI.',
     },
     {
-      title: 'Project Nero',
-      summary: 'Isometric cyberpunk multiplayer RPG with a three.js world, server-authoritative combat, persistent quests, and original characters. TypeScript, React, Colyseus, PostgreSQL, Blender.',
-    },
-    {
-      title: 'Jelly Rune Rush',
-      summary: 'Portrait arcade game: read each jelly\'s color code, cast it on four elemental pads, and hold the Prism Core through five waves and a boss. Godot 4.6, GDScript, shaders, Android.',
-    },
-    {
       title: 'Night Market',
+      status: 'In progress',
       summary: 'Co-op Roblox game: cook and serve at a Filipino night market after closing, while something watches from the alleys. Roblox Studio, Luau, Blender.',
     },
     {
       title: 'Unaccounted',
+      status: 'In progress',
       summary: 'Philippine-rooted social-deduction game: players build a public project, investigate missing money, and decide whom to trust. Roblox Studio, Luau, Blender.',
     },
     {
       title: 'Through His Eyes & Bible Story Animations',
-      summary: 'Vertical 9:16 biblical short films and storybook animations produced through scripted Python, Canvas, and FFmpeg editorial pipelines with 3-track narration, dialogue, and original score mixes.',
+      status: 'In progress',
+      summary: 'Vertical 9:16 biblical short films and storybook animations produced through scripted Python, Canvas, and FFmpeg editorial pipelines with 3-track narration, dialogue, and original score mixes, for the Scripture Brought to Life YouTube channel.',
+    },
+    {
+      title: 'Life with Sophia',
+      status: 'Live',
+      summary: 'Editorial web publication of finds and micro-stories with MDX stories and clear affiliate disclosure, plus an openly AI-generated Facebook Page for Shopee affiliate content.',
     },
     {
       title: 'HIVE',
+      status: 'In progress',
       summary: 'Verified agentic coding runtime with a CLI, terminal UI, and Windows desktop companion built around guarded execution. TypeScript, Electron, Playwright.',
     },
     {
       title: 'ShopMart',
+      status: 'In progress',
       summary: 'Security hardening and release acceptance for a multi-seller marketplace monorepo: 30 of 31 Supabase Advisor findings closed. NestJS, Next.js, Expo, Supabase, Stripe.',
     },
     {
-      title: 'TIRADOR: Barangay Survivors',
-      summary: 'Filipino-themed top-down pixel roguelite in Godot 4. Slingshot combat in a barangay TileMap, weapon upgrade tree, enemy spawner. Playable arena foundation shipped.',
+      title: "The Lord's Worship Center (v2)",
+      status: 'Live',
+      summary: 'Church website redesign: 10-section single-page site with sermon library, prayer request form, feeding program gallery, and a Give section with GCash/PayPal. Warm cream-and-wood design system.',
     },
     {
-      title: "The Lord's Worship Center (v2)",
-      summary: 'Church website redesign: 10-section single-page site with sermon library, prayer request form, feeding program gallery, Give section with GCash/PayPal. Warm cream-and-wood design system.',
+      title: 'TIRADOR: Barangay Survivors',
+      status: 'Paused',
+      summary: 'Filipino-themed top-down pixel roguelite in Godot 4. Slingshot combat in a barangay TileMap, weapon upgrade tree, enemy spawner. Playable arena foundation shipped; development is currently paused.',
     },
   ],
 
